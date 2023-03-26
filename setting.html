@@ -125,11 +125,11 @@
             }
         });
         const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
+        alert(profilPictureCookie)
         if (profilPictureCookie) {
             const newProfilPicture = document.getElementById("profilPicture")
             alert(newProfilPicture.src)
             newProfilPicture.src = profilPictureCookie.toDataURL();
-            alert(profilPictureCookie)
         }
     </script>
 </body>
