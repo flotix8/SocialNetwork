@@ -23,8 +23,8 @@
 		<button id="buttonBack" type="submit">Enregistrer</button>
 	</form>
     <form id="profil-form">
-		<label for="file-profil">profile picture :</label>
-		<input type="file" id="file-profil" name="file-profil">
+		<label for="file-profil">profile picture (write the URL) :</label>
+		<input type="text" id="file-profil" name="file-profil">
 	</form>
 
     <script>
@@ -127,7 +127,7 @@
         const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
             const newProfilPicture = document.getElementById("profilPicture")
-            newProfilPicture.src = "file:///C:/Users/flori/Pictures/logo/bot.png";
+            newProfilPicture.src = profilPictureCookie;
         }
     </script>
 </body>
