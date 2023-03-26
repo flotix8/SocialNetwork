@@ -69,6 +69,22 @@
         }
 
 
+        const nomUtilisateur = getCookieValue("emailUtilisateur");
+        if (nomUtilisateur) {
+			loginText.innerHTML = "Logout";
+
+			// Ajouter un écouteur d'événements au bouton de déconnexion
+			loginText.addEventListener("click", function() {
+				// Supprimer le cookie d'authentification
+				document.cookie = "emailUtilisateur=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				document.cookie = "motDePasse=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+				// Rediriger l'utilisateur vers la page de connexion
+				window.location.href = "https://flotix8.github.io/SocialNetwork/page_de_inscription.html";
+			});
+        }
+
+
         // ---------------------------Style---------------------------
 		// Récupérer le formulaire de modification de la couleur
 		const colorForm = document.getElementById("color-form");
@@ -109,6 +125,7 @@
             document.body.style.backgroundColor = couleurFond;
         }
         
+
 
         const profilPicture = document.getElementById("buttonPicture");
 
