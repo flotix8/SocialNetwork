@@ -62,14 +62,16 @@
 			return false;
 		}
 
-
+		// ---------------------------Style---------------------------
 		const loginText = document.getElementById("loginText").innerHTML;
+
+		// Récupérer la couleur saisie par l'utilisateur
+		const colorInput = document.getElementById("color-input");
+		const newColor = colorInput.value;
 
 		// Enregistrer la couleur dans un cookie associé au nom d'utilisateur
 		const nomUtilisateur = getCookieValue("emailUtilisateur");
-		alert(nomUtilisateur)
 		if (nomUtilisateur) {
-			alert("ddfdf")
 			document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
 			loginText = nomUtilisateur
 		}
@@ -84,6 +86,12 @@
 				}
 			}
 			return null;
+		}
+
+		// Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
+		const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
+		if (couleurFond) {
+			document.body.style.backgroundColor = couleurFond;
 		}
 	</script>
 </body>
