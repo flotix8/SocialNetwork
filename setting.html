@@ -25,6 +25,7 @@
     <form id="profil-form">
 		<label for="text-profil">profile picture (write the URL) :</label>
 		<input type="text" id="text-profil" name="text-profil">
+        <button id="buttonPicture" type="submit">Enregistrer</button>
 	</form>
 
     <script>
@@ -72,9 +73,6 @@
 		// Récupérer le formulaire de modification de la couleur
 		const colorForm = document.getElementById("color-form");
 
-        // Obtenez une référence à l'élément input file
-        const profilPicture = document.getElementById("buttonProfil");
-
         // Ajouter un événement de soumission au formulaire
         colorForm.addEventListener("submit", (event) => {
             event.preventDefault(); // Empêcher le formulaire de se soumettre
@@ -83,19 +81,14 @@
             const colorInput = document.getElementById("color-input");
             const newColor = colorInput.value;
 
-            const PictureInput = document.getElementById("text-profil");
-            const newPicture = PictureInput.value;
-
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
             const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
                 document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
-                document.cookie = `profilPicture_${nomUtilisateur}=${newPicture}; max-age=3600`;
             }
 
             // Mettre à jour la couleur de fond du body
             document.body.style.backgroundColor = newColor;
-            document.getElementById("profilPicture").src = newPicture;
         });
 
         // Fonction pour récupérer la valeur d'un cookie
@@ -115,10 +108,28 @@
         if (couleurFond) {
             document.body.style.backgroundColor = couleurFond;
         }
+        
+
+        const profilPicture = document.getElementById("buttonPicture");
+
+        profilPicture.addEventListener("submit", (event) => {
+            event.preventDefault(); // Empêcher le formulaire de se soumettre
+            alert("tst")
+
+            const PictureInput = document.getElementById("text-profil");
+            const newPicture = PictureInput.value;
+
+            // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
+            const nomUtilisateur = getCookieValue("emailUtilisateur");
+            if (nomUtilisateur) {
+                document.cookie = `profilPicture_${nomUtilisateur}=${newPicture}; max-age=3600`;
+            }
+
+            document.getElementById("profilPicture").src = newPicture;
+        });
 
         const profilPictureCookie = getCookieValue(`profilPicture_${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
-            alert("test3")
             const newProfilPicture = document.getElementById("profilPicture")
             newProfilPicture.src = profilPictureCookie;
         }
