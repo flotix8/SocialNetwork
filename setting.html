@@ -140,14 +140,13 @@
                 document.cookie = `profilPicture_${nomUtilisateur}=${newPicture.value}; max-age=3600`;
             }
 
-            const newProfilPicture = document.getElementById("profilPicture");
-            newProfilPicture.src = newPicture.value;
+            document.getElementById("profilPicture").src = newPicture.value;
         });
 
         const profilPictureCookie = getCookieValue(`profilPicture_${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
             const newProfilPicture = document.getElementById("profilPicture");
-            newProfilPicture.src = profilPictureCookie.value;
+            newProfilPicture.src = profilPictureCookie;
         }
     </script>
 </body>
