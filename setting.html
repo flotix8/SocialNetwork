@@ -95,7 +95,7 @@
 
             // Mettre à jour la couleur de fond du body
             document.body.style.backgroundColor = newColor;
-            document.getElementById("profilPicture").src = newPicture;
+            document.getElementById("profilPicture") = newPicture;
         });
 
         // Fonction pour récupérer la valeur d'un cookie
@@ -120,7 +120,7 @@
         if (profilPictureCookie) {
             alert("test3")
             const newProfilPicture = document.getElementById("profilPicture")
-            newProfilPicture.src = profilPictureCookie;
+            newProfilPicture = profilPictureCookie;
         }
     </script>
 </body>
