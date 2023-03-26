@@ -21,9 +21,6 @@
 	<script>
 		var theToggle = document.getElementById('toggle');
 
-		// based on Todd Motto functions
-		// https://toddmotto.com/labs/reusable-js/
-
 		// hasClass
 		function hasClass(elem, className) {
 			return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
@@ -63,11 +60,11 @@
 		}
 
 		// ---------------------------Style---------------------------
-		const loginText = document.getElementById("loginText").innerHTML;
+		var loginText = document.getElementById("loginText").innerHTML;
 
 		var nomUtilisateur = getCookieValue("emailUtilisateur");
 		if (nomUtilisateur) {
-			loginText = "nomUtilisateur"
+			loginText = nomUtilisateur
 		}
 
 		// Fonction pour récupérer la valeur d'un cookie
