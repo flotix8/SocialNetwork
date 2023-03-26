@@ -112,10 +112,11 @@
         // ---------------------------Profil---------------------------
         
         // Obtenez une référence à l'élément input file
-        const profilPicture = document.getElementById("profil-form");
+        const profilPicture = document.getElementById("file-profil");
 
         // Ajoutez un gestionnaire d'événements pour détecter lorsque l'utilisateur sélectionne un fichier
-        profilPicture.addEventListener("change", function() {
+        profilPicture.addEventListener("change", (event) => {
+            event.preventDefault();
             // Obtenez le fichier sélectionné en accédant à la propriété "files" de l'élément input file
             const selectedFile = inputFile.files[0];
             alert(selectedFile)
