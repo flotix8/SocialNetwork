@@ -17,13 +17,6 @@
 		<li><a href="#contact">Contact</a></li>
 	</ul>
 	</div>
-
-	<!-- Formulaire pour modifier la couleur -->
-	<form id="color-form">
-		<label for="color-input">Couleur de fond :</label>
-		<input type="color" id="color-input" name="color-input">
-		<button type="submit">Enregistrer</button>
-	</form>
 	
 	<script>
 		var theToggle = document.getElementById('toggle');
@@ -69,48 +62,29 @@
 			return false;
 		}
 
-		// ---------------------------Style---------------------------
-		// Récupérer le formulaire de modification de la couleur
-		const colorForm = document.getElementById("color-form");
 
 		const loginText = document.getElementById("loginText").innerHTML;
 
-		// Ajouter un événement de soumission au formulaire
-		colorForm.addEventListener("submit", (event) => {
-			event.preventDefault(); // Empêcher le formulaire de se soumettre
-
-			// Récupérer la couleur saisie par l'utilisateur
-			const colorInput = document.getElementById("color-input");
-			const newColor = colorInput.value;
-
-			// Enregistrer la couleur dans un cookie associé au nom d'utilisateur
-			const nomUtilisateur = getCookieValue("emailUtilisateur");
-			if (nomUtilisateur) {
-				document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
-				loginText = nomUtilisateur
-			}
-
-			// Mettre à jour la couleur de fond du body
-			document.body.style.backgroundColor = newColor;
-		});
-
-		// Fonction pour récupérer la valeur d'un cookie
-		function getCookieValue(cookieName) {
-			const cookies = document.cookie.split("; ");
-			for (const cookie of cookies) {
-				const [name, value] = cookie.split("=");
-				if (name === cookieName) {
-					return value;
-				}
-			}
-			return null;
+		// Enregistrer la couleur dans un cookie associé au nom d'utilisateur
+		const nomUtilisateur = getCookieValue("emailUtilisateur");
+		alert(nomUtilisateur)
+		if (nomUtilisateur) {
+			alert("ddfdf")
+			document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
+			loginText = nomUtilisateur
 		}
 
-		// Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
-		const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
-		if (couleurFond) {
-			document.body.style.backgroundColor = couleurFond;
-		}
+		// // Fonction pour récupérer la valeur d'un cookie
+		// function getCookieValue(cookieName) {
+		// 	const cookies = document.cookie.split("; ");
+		// 	for (const cookie of cookies) {
+		// 		const [name, value] = cookie.split("=");
+		// 		if (name === cookieName) {
+		// 			return value;
+		// 		}
+		// 	}
+		// 	return null;
+		// }
 	</script>
 </body>
 </html>
