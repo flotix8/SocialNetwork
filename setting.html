@@ -73,6 +73,9 @@
 		// Récupérer le formulaire de modification de la couleur
 		const colorForm = document.getElementById("color-form");
 
+        // Obtenez une référence à l'élément input file
+        const profilPicture = document.getElementById("buttonProfil");
+
         // Ajouter un événement de soumission au formulaire
         colorForm.addEventListener("submit", (event) => {
             event.preventDefault(); // Empêcher le formulaire de se soumettre
@@ -81,10 +84,14 @@
             const colorInput = document.getElementById("color-input");
             const newColor = colorInput.value;
 
+            const PictureInput = document.getElementById("text-profil");
+            const newPicture = PictureInput.value;
+
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
             const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
                 document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
+                document.cookie = `profilPicture_${nomUtilisateur}=${newPicture}; max-age=3600`;
             }
 
             // Mettre à jour la couleur de fond du body
@@ -109,25 +116,7 @@
             document.body.style.backgroundColor = couleurFond;
         }
 
-
-        // ---------------------------Profil---------------------------
-        
-        // Obtenez une référence à l'élément input file
-        const profilPicture = document.getElementById("buttonProfil");
-
-        // Ajoutez un gestionnaire d'événements pour détecter lorsque l'utilisateur sélectionne un fichier
-        profilPicture.addEventListener("submit", function() {
-            alert("test")
-            const PictureInput = document.getElementById("text-profil");
-            const newPicture = PictureInput.value;
-
-            const nomUtilisateur = getCookieValue("emailUtilisateur");
-            if (nomUtilisateur) {
-                alert("test2")
-                document.cookie = `profilPicture${nomUtilisateur}=${newPicture}; max-age=3600`;
-            }
-        });
-        const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
+        const profilPictureCookie = getCookieValue(`profilPicture_${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
             alert("test3")
             const newProfilPicture = document.getElementById("profilPicture")
