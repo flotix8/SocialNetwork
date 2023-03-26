@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Social Network Page</title>
+	<link rel="stylesheet" type="text/css" href="pageProfil.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+
+</head>
+<body>
+	<a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://yt3.ggpht.com/yti/AHXOFjVaO57NZn54rIPF3EiXicYHFBWo9njQoXChDGt6EQ=s88-c-k-c0x00ffffff-no-rj-mo"></span></a>
+
+	<div id="menu">
+		<ul>
+			<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/setting.html">Setting</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</div>
+    
+    <script>
+		var theToggle = document.getElementById('toggle');
+
+		// hasClass
+		function hasClass(elem, className) {
+			return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+		}
+		// addClass
+		function addClass(elem, className) {
+			if (!hasClass(elem, className)) {
+				elem.className += ' ' + className;
+			}
+		}
+		// removeClass
+		function removeClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+					newClass = newClass.replace(' ' + className + ' ', ' ');
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			}
+		}
+		// toggleClass
+		function toggleClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(" " + className + " ") >= 0 ) {
+					newClass = newClass.replace( " " + className + " " , " " );
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			} else {
+				elem.className += ' ' + className;
+			}
+		}
+
+		theToggle.onclick = function() {
+			toggleClass(this, 'on');
+			return false;
+		}
+
+		// Fonction pour récupérer la valeur d'un cookie
+		function getCookieValue(cookieName) {
+			const cookies = document.cookie.split("; ");
+			for (const cookie of cookies) {
+				const [name, value] = cookie.split("=");
+				if (name === cookieName) {
+					return value;
+				}
+			}
+			return null;
+		}
+
+
+		const nomUtilisateur = getCookieValue("emailUtilisateur");
+        if (nomUtilisateur) {
+			loginText.innerHTML = "Logout";
+
+			// Ajouter un écouteur d'événements au bouton de déconnexion
+			loginText.addEventListener("click", function() {
+				// Supprimer le cookie d'authentification
+				document.cookie = "emailUtilisateur=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				document.cookie = "motDePasse=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+				// Rediriger l'utilisateur vers la page de connexion
+				window.location.href = "https://flotix8.github.io/SocialNetwork/page_de_inscription.html";
+			});
+        }
+
+
+		// Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
+		const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
+		if (couleurFond) {
+			document.body.style.backgroundColor = couleurFond;
+		}
+
+		const profilPictureCookie = getCookieValue(`profilPicture_${getCookieValue("emailUtilisateur")}`);
+        if (profilPictureCookie) {
+            const newProfilPicture = document.getElementById("profilPicture")
+            newProfilPicture.src = profilPictureCookie;
+        }
+    </script>
+</body>
+</html>
