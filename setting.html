@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="pageProfil.css">
 </head>
 <body>
-    <a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://yt3.ggpht.com/yti/AHXOFjVaO57NZn54rIPF3EiXicYHFBWo9njQoXChDGt6EQ=s88-c-k-c0x00ffffff-no-rj-mo"></span></a>
+    <a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src=""></span></a>
 
 	<div id="menu">
         <ul>
@@ -126,7 +126,8 @@
         });
         const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
-            document.getElementById("profilPicture") = profilPictureCookie;
+            const newProfilPicture = document.getElementById("profilPicture")
+            newProfilPicture.src = "https://yt3.ggpht.com/yti/AHXOFjVaO57NZn54rIPF3EiXicYHFBWo9njQoXChDGt6EQ=s88-c-k-c0x00ffffff-no-rj-mo";
         }
     </script>
 </body>
