@@ -17,6 +17,14 @@
 		<li><a href="#contact">Contact</a></li>
 	</ul>
 	</div>
+
+	<!-- Formulaire pour modifier la couleur -->
+	<form id="color-form">
+		<label for="color-input">Couleur de fond :</label>
+		<input type="color" id="color-input" name="color-input">
+		<button type="submit">Enregistrer</button>
+	</form>
+	
 	<script>
 		var theToggle = document.getElementById('toggle');
 
@@ -62,38 +70,57 @@
 		}
 
 
-		const cookies = document.cookie.split(';');
+		// const cookies = document.cookie.split(';');
 		
-		var body = document.querySelector("body")
-		// Récupérer le nom d'utilisateur à partir du cookie
-		for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-			if (cookie.startsWith('emailUtilisateur=')) {
-				var nomUtilisateur = cookie.split('=')[1]
-				alert(nomUtilisateur)
+		// var body = document.querySelector("body")
+		// // Récupérer le nom d'utilisateur à partir du cookie
+		// for (let i = 0; i < cookies.length; i++) {
+        //     const cookie = cookies[i].trim();
+		// 	if (cookie.startsWith('emailUtilisateur=')) {
+		// 		var nomUtilisateur = cookie.split('=')[1]
+		// 	}
+		// }
+		
+		// Récupérer le formulaire de modification de la couleur
+		const colorForm = document.querySelector("color-form");
+
+		// Ajouter un événement de soumission au formulaire
+		colorForm.addEventListener("submit", (event) => {
+			event.preventDefault(); // Empêcher le formulaire de se soumettre
+
+			// Récupérer la couleur saisie par l'utilisateur
+			const colorInput = document.getElementById("color-input");
+			const newColor = colorInput.value;
+
+			// Enregistrer la couleur dans un cookie associé au nom d'utilisateur
+			const nomUtilisateur = getCookieValue("emailUtilisateur");
+			alert(nomUtilisateur)
+			if (nomUtilisateur) {
+				document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
+			}
+
+			// Mettre à jour la couleur de fond du body
+			document.body.style.backgroundColor = newColor;
+		});
+
+		// Fonction pour récupérer la valeur d'un cookie
+		function getCookieValue(cookieName) {
+		const cookies = document.cookie.split("; ");
+		for (const cookie of cookies) {
+			const [name, value] = cookie.split("=");
+			if (name === cookieName) {
+			return value;
 			}
 		}
-		
-		// Définir les paramètres par défaut
-		const parametresParDefaut = {
-			couleurFond: '#FFFFFF',
-			// Ajoutez d'autres paramètres ici
-		};
-
-		// Récupérer les paramètres pour cet utilisateur à partir du localStorage
-		let parametres = JSON.parse(localStorage.getItem(nomUtilisateur));
-
-		// Si les paramètres n'ont jamais été enregistrés pour cet utilisateur, utiliser les paramètres par défaut
-		if (!parametres) {
-			parametres = parametresParDefaut;
+		return null;
 		}
 
-		// Modifier les paramètres en fonction de l'entrée utilisateur
-		parametres.couleurFond = document.querySelector('body').value;
-		// Ajoutez d'autres modifications de paramètres ici
+		// Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
+		const couleurFond = getCookieValue(`couleurFond_${getCookieValue("nomUtilisateur")}`);
+		if (couleurFond) {
+		document.body.style.backgroundColor = couleurFond;
+		}
 
-		// Enregistrer les paramètres pour cet utilisateur dans le localStorage
-		localStorage.setItem(nomUtilisateur, JSON.stringify(parametres));
 	</script>
 </body>
 </html>
