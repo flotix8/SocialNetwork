@@ -1,198 +1,63 @@
-* {
-	font-family: 'Roboto', sans-serif;
-	text-align: center;
-	color: white;
-	background-color: rgb(31,37,61);
-	font-size: 15px;
+body {
+	background-color: #919191;
 }
 
-.page{
-	max-width: 1140px;
-    margin: 0 auto;
+/* Important styles */
+#toggle {
+  display: block;
+  position: absolute;
+  margin: 15px 80%;
+}
+#profilPicture {
+	border-radius: 30px;
 }
 
-.top {
-	height: 80px;
-	width: 1000px;
-	display: inline-flex;
-	padding-left: 25px;
-	background-color: rgb(57,66,100);
-	line-height: 40px;
-	border-radius: 5px;
+/* on activation */
+#toggle.on span {
+  background-color: transparent;
+}
+#toggle.on span:before {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#toggle.on span:after {
+  transform: rotate(-45deg) translate(7px, -8px);
+}
+#toggle.on + #menu {
+  opacity: 1;
+  visibility: visible;
 }
 
-
-#me {
-	 margin-left: auto;
-	 margin-right: 5px;
-	 padding: 5px;
+/* menu appearance*/
+#menu {
+  position: absolute;
+  color: #999;
+  width: 130px;
+  padding: 10px;
+  margin: 63px 75%;
+  font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  text-align: left;
+  border-radius: 4px;
+  background: rgb(49, 49, 49);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  /* just for this demo */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s;
 }
-
-#imgme {
-	border-radius: 35px;
-	border:2px solid gray;
-	height: 40px;
-	width: 40px;
-	margin-right: 15px;	
-	margin-top: 16px;
+ul, li, li a {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
-
-#imgmed{
-	border-radius: 5px;
+li a {
+  padding: 5px;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: all .2s;
 }
-
-button {
-	border:none;
-	padding: 20px;
-	text-align: center;
-	background-color: inherit;
-	cursor: pointer;
-    transition: all 0.2s linear;
-}
-
-.top button:hover{
-	color:gray;
-}
-
-.top button {
-	padding-right: 60px;
-}
-
-.menubox button:hover{
-	background-color: rgb(17,168,171)
-}
-
-.menubox {
-	width: 300px;
-	margin-top: 10px;
-	margin-left: 60px;
-
-}
-
-#menu{
-	height: 40px;
-	font-weight: bold;
-	background-color: rgb(17,168,171);
-	line-height: 40px;
-	border-radius: 5px 5px 0 0;
-	margin-bottom: 1px;
-}
-
-#statistics {
-	border-radius: 0 0 5px 5px;
-}
-
-.menubox button {
-	width: 300px;
-	padding-left: 40px;
-	text-align: left;
-	background-color: rgb(57,66,100);
-	margin-bottom: 1px;
-	margin-top: 1px;
-}
-
-
-.container {
-	display:inline-flex;
-	float: left;
-}
-.middle {
-	background-color: rgb(57,66,100);
-	margin-left: 35px;
-	margin-top: 10px;
-	width: 300px;
-	border-radius: 5px;
-}
-
-.middle img {
-	height: 200px;
-	width: 200px;
-	border-radius:100px; 
-	margin-top: 20px;
-}
-
-.middle h3 {
-	background-color: inherit;
-}
-
-.yellow{
-	background-color: yellow;
-	height: 5px;
-	width: 100px;
-}
-.red{
-	background-color: red;
-	height: 5px;
-	width: 100px;
-}
-.green{
-	background-color: green;
-	height: 5px;
-	width: 100px;
-}
-
-.coloredline{
-	display: flex;
-}
-
-.num{
-	display: flex;
-}
-
-.numbers {
-	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	background-color: rgb(57,66,100)
-}
-
-#border {
-	border-right: 1px solid #555555;
-	border-left: 1px solid #555555;
-
-}
-
-.bottomline{
-	background-color: rgb(57,66,100);
-	height: 10px;
-	border-radius: 0 0 5px 5px;
-}
-
-.newsletter h3 {
-	padding-top: 20px;
-	background-color: inherit;
-	font-size: 20px;
-}
-
-.middle p {
-	background-color: inherit;
-	font-size: 12px;
-	padding: 10px;
-
-}
-
-.newsletter{
-	background-color: rgb(57,66,100);
-	margin-left: 35px;
-	height: 250px;
-	margin-top: 10px;
-	border-radius: 5px;
-	width: 350px;
-}
-
-.newsletter input {
-	background-color: rgba(57,66,100, 0,5);
-	padding: auto 15px;
-	height: 30px;
-	width: 250px; 
-	text-align: center;
-	border:1px solid gray;
-	border-radius: 2px;
-}
-
-.newsletter button {
-	background-color: rgb(17,168,171);
-	border-radius: 10px;
-	margin-top: 20px;
-	width: 150px;
+li a:hover,
+li a:focus {
+  background: #919191;
+  color: #fff;
 }
