@@ -83,8 +83,6 @@
 
 			// Enregistrer la couleur dans un cookie associé au nom d'utilisateur
 			const nomUtilisateur = getCookieValue("emailUtilisateur");
-			alert(nomUtilisateur)
-			alert(newColor)
 			if (nomUtilisateur) {
 				document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
 			}
