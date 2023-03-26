@@ -22,11 +22,15 @@
 		<input type="color" id="color-input" name="color-input">
 		<button id="buttonBack" type="submit">Enregistrer</button>
 	</form>
-    <form id="profil-form">
-		<label for="text-profil">profile picture (write the URL) :</label>
-		<input type="text" id="text-profil" name="text-profil">
-        <button id="buttonPicture" type="submit">Enregistrer</button>
-	</form>
+    <!-- Formulaire pour sélectionner une photo de profil -->
+    <form>
+    <input type="file" id="input-photo" accept="image/*">
+    <button type="button" onclick="handlePhotoSelection()">Sélectionner</button>
+    </form>
+
+    <!-- Affichage de la photo sélectionnée -->
+    <div id="photo-preview"></div>
+
 
     <script>
         var theToggle = document.getElementById('toggle');
@@ -127,27 +131,54 @@
         
 
 
-        const profilPicture = document.getElementById("profil-form");
+        // Récupère l'élément HTML pour afficher la photo sélectionnée
+        const photoPreview = document.getElementById("photo-preview");
 
-        profilPicture.addEventListener("submit", (event) => {
-            event.preventDefault();
+        // Gère la sélection de la photo de profil
+        function handlePhotoSelection() {
+        // Récupère l'élément HTML pour sélectionner une photo
+        const inputPhoto = document.getElementById("input-photo");
 
-            const newPicture = document.querySelector("#text-profil");
-
-            // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
-            const nomUtilisateur = getCookieValue("emailUtilisateur");
-            if (nomUtilisateur) {
-                document.cookie = `profilPicture_${nomUtilisateur}=${newPicture.value}; max-age=3600`;
-            }
-
-            document.getElementById("profilPicture").src = newPicture.value;
-        });
-
-        const profilPictureCookie = getCookieValue(`profilPicture_${getCookieValue("emailUtilisateur")}`);
-        if (profilPictureCookie) {
-            const newProfilPicture = document.getElementById("profilPicture");
-            newProfilPicture.src = profilPictureCookie;
+        // Vérifie qu'une photo a été sélectionnée
+        if (inputPhoto.files.length === 0) {
+            return;
         }
+
+        // Récupère la première photo sélectionnée
+        const photo = inputPhoto.files[0];
+
+        // Crée un objet FileReader pour lire les données de la photo
+        const reader = new FileReader();
+
+        // Définit la fonction à appeler lorsque les données de la photo ont été lues
+        reader.onload = function (event) {
+            // Crée une data URL à partir des données de la photo
+            const dataUrl = event.target.result;
+
+            // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
+            document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
+
+            // Affiche la photo sélectionnée
+            photoPreview.style.backgroundImage = `url(${dataUrl})`;
+        };
+
+        // Lit les données de la photo en tant que data URL
+        reader.readAsDataURL(photo);
+        }
+
+        // Fonction pour récupérer la valeur d'un cookie
+        function getCookie(name) {
+            const cookies = document.cookie.split("; ");
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split("=");
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return "";
+        }
+
+
     </script>
 </body>
 </html>
