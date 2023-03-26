@@ -132,7 +132,7 @@
         profilPicture.addEventListener("submit", (event) => {
             event.preventDefault();
 
-            const newPicture = document.getElementById("text-profil");
+            const newPicture = document.querySelector("#text-profil");
 
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
             const nomUtilisateur = getCookieValue("emailUtilisateur");
