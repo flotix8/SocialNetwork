@@ -60,11 +60,11 @@
 		}
 
 		// ---------------------------Style---------------------------
-		var loginText = document.getElementById("loginText").innerHTML;
+		var loginText = document.getElementById("loginText");
 
 		var nomUtilisateur = getCookieValue("emailUtilisateur");
 		if (nomUtilisateur) {
-			loginText = "nomUtilisateur"
+			loginText.innerHTML = "nomUtilisateur";
 		}
 
 		// Fonction pour récupérer la valeur d'un cookie
