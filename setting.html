@@ -122,6 +122,7 @@
             const PictureInput = document.getElementById("file-profil");
             const newPicture = PictureInput.value;
 
+            const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
                 alert("dsdfdf");
                 document.cookie = `profilPicture${nomUtilisateur}=${newPicture}; max-age=3600`;
