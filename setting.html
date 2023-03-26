@@ -159,7 +159,8 @@
             document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
 
             // Affiche la photo sélectionnée
-            document.body.style.backgroundImage = `url(${dataUrl})`;
+            const profilPicture = document.getElementById("profilPicture");
+            profilPicture.src = `url(${dataUrl})`;
         };
 
         // Lit les données de la photo en tant que data URL
