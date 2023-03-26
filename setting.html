@@ -132,21 +132,20 @@
         profilPicture.addEventListener("submit", (event) => {
             event.preventDefault();
 
-            const PictureInput = document.getElementById("text-profil");
-            const newPicture = PictureInput.value;
+            const newPicture = document.getElementById("text-profil");
 
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
             const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
-                document.cookie = `profilPicture_${nomUtilisateur}=${newPicture}; max-age=3600`;
+                document.cookie = `profilPicture_${nomUtilisateur}=${newPicture.value}; max-age=3600`;
             }
 
-            document.getElementById("profilPicture").src = newPicture;
+            document.getElementById("profilPicture").src = newPicture.value;
         });
 
         const profilPictureCookie = getCookieValue(`profilPicture_${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
-            const newProfilPicture = document.getElementById("profilPicture")
+            var newProfilPicture = document.getElementById("profilPicture")
             newProfilPicture.src = profilPictureCookie;
         }
     </script>
