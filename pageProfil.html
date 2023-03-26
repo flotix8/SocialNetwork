@@ -7,44 +7,59 @@
 
 </head>
 <body>
-	<div class="page">
-		<div class="top">
-			<button>Settings</button>
-			<button>Accounts</button>
-			<button>Messages</button>
-			<button>Favorites</button>
-			<href scr="https://flotix8.github.io/SocialNetwork/pageProfil.html"><img id="imgme" src="https://vignette.wikia.nocookie.net/villains/images/4/49/ImagesCA172R4B.jpg/revision/latest?cb=20141228121325" height="60px" width="60px"></href>
-		</div>
+	<a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://yt3.ggpht.com/yti/AHXOFjVaO57NZn54rIPF3EiXicYHFBWo9njQoXChDGt6EQ=s88-c-k-c0x00ffffff-no-rj-mo"></span></a>
 
-		<div class="container">
-				<div class="menubox">
-					<div id="menu">MENU BOX</div>
-					<button>Messages</button>		
-					<button>Invites</button>		
-					<button>Events</button>		
-					<button>Account Settings</button>		
-					<button id="statistics">Statistics</button>		
-				</div>
+	<div id="menu">
+	<ul>
+		<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html">Login</a></li>
+		<li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
+		<li><a href="https://flotix8.github.io/SocialNetwork/setting.html">Setting</a></li>
+		<li><a href="#contact">Contact</a></li>
+	</ul>
+	</div>
+	<script>
+		var theToggle = document.getElementById('toggle');
 
-				<div class="middle">
-					<img src="https://vignette.wikia.nocookie.net/villains/images/4/49/ImagesCA172R4B.jpg/revision/latest?cb=20141228121325">
-					<h3>Kıvanç Tatlıtuğ</h3>
-					<p>Turkish actor, model, and former basketball player. </p>
-					<div class="coloredline">
-						<div class="yellow"></div ><div class="green"></div><div class="red"></div>
-					</div>
-					<div class="num">
-						<div class="numbers">23</div><div id="border" class="numbers">841</div><div class="numbers">49</div>
-					</div>
-					<div class="bottomline"></div>
-				</div>	
-				<div class="newsletter">
-					<h3>JOIN THE NEWSLETTER</h3>
-					<input type="email" name="email" placeholder="yourname@gmail.com" required>
-					<br>
-					<button type="submit">SUBSCRIBE</button>
-				</div>
-		</div>
-	</div>	
+		// based on Todd Motto functions
+		// https://toddmotto.com/labs/reusable-js/
+
+		// hasClass
+		function hasClass(elem, className) {
+			return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+		}
+		// addClass
+		function addClass(elem, className) {
+			if (!hasClass(elem, className)) {
+				elem.className += ' ' + className;
+			}
+		}
+		// removeClass
+		function removeClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+					newClass = newClass.replace(' ' + className + ' ', ' ');
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			}
+		}
+		// toggleClass
+		function toggleClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(" " + className + " ") >= 0 ) {
+					newClass = newClass.replace( " " + className + " " , " " );
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			} else {
+				elem.className += ' ' + className;
+			}
+		}
+
+		theToggle.onclick = function() {
+		toggleClass(this, 'on');
+		return false;
+		}
+	</script>
 </body>
 </html>
