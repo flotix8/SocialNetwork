@@ -127,7 +127,8 @@
         const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
             const newProfilPicture = document.getElementById("profilPicture")
-            newProfilPicture.src = "https://yt3.ggpht.com/yti/AHXOFjVaO57NZn54rIPF3EiXicYHFBWo9njQoXChDGt6EQ=s88-c-k-c0x00ffffff-no-rj-mo";
+            alert(newProfilPicture)
+            newProfilPicture.src = profilPictureCookie.toDataURL();
         }
     </script>
 </body>
