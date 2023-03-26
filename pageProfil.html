@@ -65,6 +65,7 @@
 		// ---------------------------Style---------------------------
 		const loginText = document.getElementById("loginText").innerHTML;
 
+		const nomUtilisateur = getCookieValue("emailUtilisateur");
 		if (nomUtilisateur) {
 			loginText = nomUtilisateur
 		}
