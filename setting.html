@@ -23,8 +23,8 @@
 		<button id="buttonBack" type="submit">Enregistrer</button>
 	</form>
     <form id="profil-form">
-		<label for="file-profil">profile picture (write the URL) :</label>
-		<input type="text" id="file-profil" name="file-profil">
+		<label for="text-profil">profile picture (write the URL) :</label>
+		<input type="text" id="text-profil" name="text-profil">
         <button id="buttonProfil" type="submit">Enregistrer</button>
 	</form>
 
@@ -117,16 +117,19 @@
 
         // Ajoutez un gestionnaire d'événements pour détecter lorsque l'utilisateur sélectionne un fichier
         profilPicture.addEventListener("submit", function() {
-            const PictureInput = document.getElementById("file-profil");
+            alert("test")
+            const PictureInput = document.getElementById("text-profil");
             const newPicture = PictureInput.value;
 
             const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
+                alert("test2")
                 document.cookie = `profilPicture${nomUtilisateur}=${newPicture}; max-age=3600`;
             }
         });
         const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
+            alert("test3")
             const newProfilPicture = document.getElementById("profilPicture")
             newProfilPicture.src = profilPictureCookie;
         }
