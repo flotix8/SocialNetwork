@@ -102,6 +102,8 @@
         const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
         if (couleurFond) {
             document.body.style.backgroundColor = couleurFond;
+            var colorSetting = document.getElementById("color-form")
+            colorSetting.style.color = white;
         }
     </script>
 </body>
