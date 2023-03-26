@@ -18,9 +18,13 @@
 
     <!-- Formulaire pour modifier la couleur -->
 	<form id="color-form">
-		<label for="color-input" id="test">Background :</label>
+		<label for="color-input">Background :</label>
 		<input type="color" id="color-input" name="color-input">
 		<button id="buttonBack" type="submit">Enregistrer</button>
+	</form>
+    <form id="profil-form">
+		<label for="file-profil">profile picture :</label>
+		<input type="file" id="file-profil" name="file-profil">
 	</form>
 
     <script>
@@ -102,9 +106,26 @@
         const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
         if (couleurFond) {
             document.body.style.backgroundColor = couleurFond;
-            var colorSetting = document.getElementById("test")
-            colorSetting.style.color = white;
         }
+
+
+        // ---------------------------Profil---------------------------
+        
+        // Obtenez une référence à l'élément input file
+        const newPicture = document.getElementById("file-profil");
+
+        // Ajoutez un gestionnaire d'événements pour détecter lorsque l'utilisateur sélectionne un fichier
+        newPicture.addEventListener("change", function() {
+            // Obtenez le fichier sélectionné en accédant à la propriété "files" de l'élément input file
+            const selectedFile = inputFile.files[0];
+            alert(selectedFile)
+
+            if (nomUtilisateur) {
+                alert("dsdfdf")
+                document.cookie = `profilPicture${nomUtilisateur}=${newPicture}; max-age=3600`;
+            }
+            const profilPicture = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
+        });
     </script>
 </body>
 </html>
