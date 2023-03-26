@@ -123,9 +123,11 @@
             if (nomUtilisateur) {
                 document.cookie = `profilPicture${nomUtilisateur}=${newPicture}; max-age=3600`;
             }
-            const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
-            document.getElementById("profilPicture") = profilPictureCookie;
         });
+        const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
+        if (profilPictureCookie) {
+            document.getElementById("profilPicture") = profilPictureCookie;
+        }
     </script>
 </body>
 </html>
