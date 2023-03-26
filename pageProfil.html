@@ -69,18 +69,7 @@
 			return false;
 		}
 
-
-		// const cookies = document.cookie.split(';');
-		
-		// var body = document.querySelector("body")
-		// // Récupérer le nom d'utilisateur à partir du cookie
-		// for (let i = 0; i < cookies.length; i++) {
-        //     const cookie = cookies[i].trim();
-		// 	if (cookie.startsWith('emailUtilisateur=')) {
-		// 		var nomUtilisateur = cookie.split('=')[1]
-		// 	}
-		// }
-		
+		// ---------------------------Style---------------------------
 		// Récupérer le formulaire de modification de la couleur
 		const colorForm = document.getElementById("color-form");
 
@@ -95,6 +84,8 @@
 			// Enregistrer la couleur dans un cookie associé au nom d'utilisateur
 			const nomUtilisateur = getCookieValue("nomUtilisateur");
 			if (nomUtilisateur) {
+				alert(nomUtilisateur)
+				alert(newColor)
 				document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
 			}
 
