@@ -127,7 +127,7 @@
         const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
         if (profilPictureCookie) {
             const newProfilPicture = document.getElementById("profilPicture")
-            alert(newProfilPicture)
+            alert(newProfilPicture.src)
             newProfilPicture.src = profilPictureCookie.toDataURL();
         }
     </script>
