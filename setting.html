@@ -25,6 +25,7 @@
     <form id="profil-form">
 		<label for="file-profil">profile picture (write the URL) :</label>
 		<input type="text" id="file-profil" name="file-profil">
+        <button id="buttonProfil" type="submit">Enregistrer</button>
 	</form>
 
     <script>
@@ -112,10 +113,10 @@
         // ---------------------------Profil---------------------------
         
         // Obtenez une référence à l'élément input file
-        const profilPicture = document.getElementById("profil-form");
+        const profilPicture = document.getElementById("buttonProfil");
 
         // Ajoutez un gestionnaire d'événements pour détecter lorsque l'utilisateur sélectionne un fichier
-        profilPicture.addEventListener("change", function() {
+        profilPicture.addEventListener("submit", function() {
             const PictureInput = document.getElementById("file-profil");
             const newPicture = PictureInput.value;
 
