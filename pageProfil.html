@@ -64,7 +64,35 @@
 
 		var nomUtilisateur = getCookieValue("emailUtilisateur");
 		if (nomUtilisateur) {
-			loginText.innerHTML = nomUtilisateur;
+			loginText.innerHTML = "Logout";
+
+			// Ajouter un écouteur d'événements au bouton de déconnexion
+			loginText.addEventListener("click", function() {
+				alert("dffdf")
+				// Supprimer le cookie d'authentification
+				document.cookie = "emailUtilisateur=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				document.cookie = "motDePasse=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+				// Rediriger l'utilisateur vers la page de connexion
+				window.location.href = "https://flotix8.github.io/SocialNetwork/page_de_inscription.html";
+			});
+
+			// Fonction pour récupérer la valeur d'un cookie par son nom
+			function getCookie(nom) {
+				const nomSuiviDe = nom + "=";
+				const decodeCookie = decodeURIComponent(document.cookie);
+				const cookies = decodeCookie.split(';');
+				for(let i = 0; i < cookies.length; i++) {
+					let cookie = cookies[i];
+					while (cookie.charAt(0) === ' ') {
+						cookie = cookie.substring(1);
+					}
+					if (cookie.indexOf(nomSuiviDe) === 0) {
+						return cookie.substring(nomSuiviDe.length, cookie.length);
+					}
+				}
+				return "";
+			}
 		}
 
 		// Fonction pour récupérer la valeur d'un cookie
