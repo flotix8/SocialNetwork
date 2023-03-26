@@ -113,18 +113,18 @@
         
         // Obtenez une référence à l'élément input file
         const profilPicture = document.getElementById("profil-form");
-        alert("df");
+
         // Ajoutez un gestionnaire d'événements pour détecter lorsque l'utilisateur sélectionne un fichier
         profilPicture.addEventListener("change", function() {
             const PictureInput = document.getElementById("file-profil");
             const newPicture = PictureInput.value;
-            alert("dsdfdf");
+
             const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
-                alert("szze");
                 document.cookie = `profilPicture${nomUtilisateur}=${newPicture}; max-age=3600`;
             }
-            const profilPicture = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
+            const profilPictureCookie = getCookieValue(`profilPicture${getCookieValue("emailUtilisateur")}`);
+            document.getElementById("profilPicture") = profilPictureCookie;
         });
     </script>
 </body>
