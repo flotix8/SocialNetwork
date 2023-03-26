@@ -11,7 +11,7 @@
 
 	<div id="menu">
 	<ul>
-		<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html">Login</a></li>
+		<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
 		<li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
 		<li><a href="https://flotix8.github.io/SocialNetwork/setting.html">Setting</a></li>
 		<li><a href="#contact">Contact</a></li>
@@ -73,6 +73,8 @@
 		// Récupérer le formulaire de modification de la couleur
 		const colorForm = document.getElementById("color-form");
 
+		const loginText = document.getElementById("loginText").innerHTML;
+
 		// Ajouter un événement de soumission au formulaire
 		colorForm.addEventListener("submit", (event) => {
 			event.preventDefault(); // Empêcher le formulaire de se soumettre
@@ -85,6 +87,7 @@
 			const nomUtilisateur = getCookieValue("emailUtilisateur");
 			if (nomUtilisateur) {
 				document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
+				loginText = nomUtilisateur
 			}
 
 			// Mettre à jour la couleur de fond du body
@@ -108,7 +111,6 @@
 		if (couleurFond) {
 			document.body.style.backgroundColor = couleurFond;
 		}
-
 	</script>
 </body>
 </html>
