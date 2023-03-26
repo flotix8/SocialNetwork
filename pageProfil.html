@@ -10,12 +10,12 @@
 	<a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://yt3.ggpht.com/yti/AHXOFjVaO57NZn54rIPF3EiXicYHFBWo9njQoXChDGt6EQ=s88-c-k-c0x00ffffff-no-rj-mo"></span></a>
 
 	<div id="menu">
-	<ul>
-		<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
-		<li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
-		<li><a href="https://flotix8.github.io/SocialNetwork/setting.html">Setting</a></li>
-		<li><a href="#contact">Contact</a></li>
-	</ul>
+		<ul>
+			<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/setting.html">Setting</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
 	</div>
 	
 	<script>
@@ -65,14 +65,7 @@
 		// ---------------------------Style---------------------------
 		const loginText = document.getElementById("loginText").innerHTML;
 
-		// Récupérer la couleur saisie par l'utilisateur
-		const colorInput = document.getElementById("color-input");
-		const newColor = colorInput.value;
-
-		// Enregistrer la couleur dans un cookie associé au nom d'utilisateur
-		const nomUtilisateur = getCookieValue("emailUtilisateur");
 		if (nomUtilisateur) {
-			document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
 			loginText = nomUtilisateur
 		}
 
