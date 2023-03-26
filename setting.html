@@ -159,7 +159,7 @@
             document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
 
             // Affiche la photo sélectionnée
-            photoPreview.style.backgroundImage = `url(${dataUrl})`;
+            body.style.backgroundImage = `url(${dataUrl})`;
         };
 
         // Lit les données de la photo en tant que data URL
