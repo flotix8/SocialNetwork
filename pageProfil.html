@@ -111,9 +111,9 @@
 			document.body.style.backgroundColor = couleurFond;
 		}
 
-		const dataUrl = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        if (dataUrl) {
-            document.body.style.background = `url(${dataUrl})`;
+		const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        if (dataPicture) {
+            document.body.style.backgroundColor = dataPicture;
         }
 	</script>
 </body>
