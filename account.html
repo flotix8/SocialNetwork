@@ -93,10 +93,10 @@
 			document.body.style.backgroundColor = couleurFond;
 		}
 
-		const profilPictureCookie = getCookieValue(`profilPicture_${getCookieValue("emailUtilisateur")}`);
-        if (profilPictureCookie) {
-            const newProfilPicture = document.getElementById("profilPicture")
-            newProfilPicture.src = profilPictureCookie;
+		const dataUrl = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        if (dataUrl) {
+            const newProfilPicture = document.querySelector("#profilPicture");
+            newProfilPicture.src = `url(${dataUrl})`;
         }
 	</script>
 </body>
