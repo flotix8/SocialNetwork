@@ -155,13 +155,14 @@
                 // Crée une data URL à partir des données de la photo
                 const dataUrl = event.target.result;
 
-                // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
-                document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
+                if (nomUtilisateur) {
+                    // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
+                    document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
+                }
 
                 // Affiche la photo sélectionnée
-                const profilPicture = document.querySelector("#profilPicture");
+                // const profilPicture = document.querySelector("#profilPicture");
                 document.body.style.background = `url(${dataUrl})`;
-                profilPicture.src = `url(${dataUrl})`;
             };
 
             // Lit les données de la photo en tant que data URL
