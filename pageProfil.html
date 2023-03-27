@@ -64,15 +64,15 @@
 		var nomUtilisateur = getCookieValue("emailUtilisateur");
 		if (nomUtilisateur) {
 			loginText.innerHTML = "Logout";
+			
+			// Rediriger l'utilisateur vers la page de connexion
+			loginText.href = "";
 
 			// Ajouter un écouteur d'événements au bouton de déconnexion
 			loginText.addEventListener("click", function() {
 				// Supprimer le cookie d'authentification
 				document.cookie = "emailUtilisateur=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-				document.cookie = "motDePasse=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-				// Rediriger l'utilisateur vers la page de connexion
-				loginText.href = "";
+				document.cookie = "motDePasse=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";				
 			});
 		}
 
