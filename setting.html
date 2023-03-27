@@ -25,7 +25,7 @@
     <!-- Formulaire pour sélectionner une photo de profil -->
     <form>
     <input type="file" id="input-photo" accept="image/*">
-    <button type="button" onclick="handlePhotoSelection()">Sélectionner</button>
+    <button type="button" id="button-picture">Sélectionner</button>
     </form>
 
     <!-- Affichage de la photo sélectionnée -->
@@ -132,41 +132,27 @@
         
 
 
-        // Récupère l'élément HTML pour afficher la photo sélectionnée
-        const photoPreview = document.getElementById("photo-preview");
+        
 
-
-        // Récupère l'élément HTML pour sélectionner une photo
-        const inputPhoto = document.getElementById("input-photo");
-
-        // Vérifie qu'une photo a été sélectionnée
-        if (inputPhoto.files.length === 0) {
-            return;
-        }
-
-        // Récupère la première photo sélectionnée
-        const photo = inputPhoto.files[0];
-
-        // Crée un objet FileReader pour lire les données de la photo
-        const reader = new FileReader();
+        const buttonPhoto = document.getElementById("button-picture");
 
         // Définit la fonction à appeler lorsque les données de la photo ont été lues
-        reader.onload = function (event) {
-            // Crée une data URL à partir des données de la photo
-            const dataUrl = event.target.result;
+        buttonPhoto.addEventListener("click", (event) => {
+            event.preventDefault(); // Empêcher le formulaire de se soumettre
+
+            // Récupérer la couleur saisie par l'utilisateur
+            const photoInput = document.getElementById("input-photo");
+            const newPhoto = photoInput.target.result;
 
             if (nomUtilisateur) {
                 // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
-                document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
+                document.cookie = `photoUrl_${nomUtilisateur}=${newPhoto}; max-age=3600`;
             }
 
             // Affiche la photo sélectionnée
             // const profilPicture = document.querySelector("#profilPicture");
-            document.body.style.background = `url(${dataUrl})`;
-        };
-
-        // Lit les données de la photo en tant que data URL
-        reader.readAsDataURL(photo);
+            document.body.style.background = `url(${newPhoto})`;
+        });
 
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataPicture) {
