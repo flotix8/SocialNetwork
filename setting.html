@@ -5,8 +5,8 @@
 	<link rel="stylesheet" href="pageProfil.css">
 </head>
 <body>
+    <h2 id="test">test</h2>
     <a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></span></a>
-
 	<div id="menu">
         <ul>
             <li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
@@ -17,6 +17,12 @@
 	</div>
 
     <img id="profilPictureSetting" height="300" width="300" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg">
+
+    <form id="pseudoText-form">
+		<label for="pseudoText-input">Pseudo :</label>
+		<input type="text" id="pseudoText-input" name="color-input">
+		<button id="buttonpseudoText" type="submit">Enregistrer</button>
+	</form>
 
     <!-- Formulaire pour modifier la couleur -->
 	<form id="color-form">
@@ -101,6 +107,36 @@
 				// Rediriger l'utilisateur vers la page de connexion
 				window.location.href = "https://flotix8.github.io/SocialNetwork/pageProfil.html";
 			});
+        }
+
+
+        // ---------------------------Style---------------------------
+		// Récupérer le formulaire de modification de la couleur
+		const pseudoTextForm = document.getElementById("pseudoText-form");
+
+        // Ajouter un événement de soumission au formulaire
+        pseudoTextForm.addEventListener("submit", (event) => {
+            event.preventDefault(); // Empêcher le formulaire de se soumettre
+
+            // Récupérer la couleur saisie par l'utilisateur
+            const pseudoTextInput = document.getElementById("pseudoText-input");
+            const newPseudoText = pseudoTextInput.value;
+
+            // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
+            const nomUtilisateur = getCookieValue("emailUtilisateur");
+            if (nomUtilisateur) {
+                document.cookie = `pseudo_${nomUtilisateur}=${newPseudoText}; max-age=3600`;
+            }
+
+            // Mettre à jour la couleur de fond du body
+            const pseudo = document.getElementById("test");
+            pseudo.value = newPseudoText;
+        });
+
+        // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
+        const pseudoText = getCookieValue(`pseudo_${getCookieValue("emailUtilisateur")}`);
+        if (pseudoText) {
+            document.body.style.backgroundColor = pseudoText;
         }
 
 
