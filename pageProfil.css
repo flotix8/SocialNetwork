@@ -2,6 +2,11 @@ body {
 	background-color: #919191;
 }
 
+#test {
+  position: absolute;
+  margin: 55px 81%;
+}
+
 /* Important styles */
 #toggle {
   display: block;
@@ -13,7 +18,7 @@ body {
 }
 #profilPictureSetting {
   position: absolute;
-  margin: 10% 45%;
+  margin: 10% 55%;
   border-radius: 300px;
 }
 
