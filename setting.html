@@ -1,92 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mon réseau social - Connexion</title>
-	<link rel="stylesheet" href="pageProfil.css">
+	<title>Social Network Page</title>
+	<link rel="stylesheet" type="text/css" href="pageProfil.css">
 </head>
 <body>
-    <a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></span></a>
+	<a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></span></a>
 
 	<div id="menu">
-        <ul>
-            <li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
-            <li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
-            <li><a href="https://flotix8.github.io/SocialNetwork/pageProfil.html">Home</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+		<ul>
+			<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/setting.html">Setting</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
 	</div>
-
-    <!-- Formulaire pour modifier la couleur -->
-	<form id="color-form">
-		<label for="color-input">Background :</label>
-		<input type="color" id="color-input" name="color-input">
-		<button id="buttonBack" type="submit">Enregistrer</button>
-	</form>
-    <!-- Formulaire pour sélectionner une photo de profil -->
-    <form id="picture-form">
-    <input type="file" id="input-photo" accept="image/*">
-    <button type="submit" id="button-picture">Sélectionner</button>
-    </form>
-
-    <!-- Affichage de la photo sélectionnée -->
-    <div id="photo-preview"></div>
-
-
+    
     <script>
-        var theToggle = document.getElementById('toggle');
-        // hasClass
-        function hasClass(elem, className) {
-            return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
-        }
-        // addClass
-        function addClass(elem, className) {
-            if (!hasClass(elem, className)) {
-                elem.className += ' ' + className;
-            }
-        }
-        // removeClass
-        function removeClass(elem, className) {
-            var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
-            if (hasClass(elem, className)) {
-                while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
-                    newClass = newClass.replace(' ' + className + ' ', ' ');
-                }
-                elem.className = newClass.replace(/^\s+|\s+$/g, '');
-            }
-        }
-        // toggleClass
-        function toggleClass(elem, className) {
-            var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
-            if (hasClass(elem, className)) {
-                while (newClass.indexOf(" " + className + " ") >= 0 ) {
-                    newClass = newClass.replace( " " + className + " " , " " );
-                }
-                elem.className = newClass.replace(/^\s+|\s+$/g, '');
-            } else {
-                elem.className += ' ' + className;
-            }
-        }
+		var theToggle = document.getElementById('toggle');
 
-        theToggle.onclick = function() {
-            toggleClass(this, 'on');
-            return false;
-        }
+		// hasClass
+		function hasClass(elem, className) {
+			return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+		}
+		// addClass
+		function addClass(elem, className) {
+			if (!hasClass(elem, className)) {
+				elem.className += ' ' + className;
+			}
+		}
+		// removeClass
+		function removeClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+					newClass = newClass.replace(' ' + className + ' ', ' ');
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			}
+		}
+		// toggleClass
+		function toggleClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(" " + className + " ") >= 0 ) {
+					newClass = newClass.replace( " " + className + " " , " " );
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			} else {
+				elem.className += ' ' + className;
+			}
+		}
 
+		theToggle.onclick = function() {
+			toggleClass(this, 'on');
+			return false;
+		}
 
-        // Fonction pour récupérer la valeur d'un cookie
-        function getCookieValue(cookieName) {
-            const cookies = document.cookie.split("; ");
-            for (const cookie of cookies) {
-                const [name, value] = cookie.split("=");
-                if (name === cookieName) {
-                    return value;
-                }
-            }
-            return null;
-        }
-
-
-        const nomUtilisateur = getCookieValue("emailUtilisateur");
+		
+		const nomUtilisateur = getCookieValue("emailUtilisateur");
         if (nomUtilisateur) {
 			loginText.innerHTML = "Logout";
 
@@ -102,62 +74,28 @@
         }
 
 
-        // ---------------------------Style---------------------------
-		// Récupérer le formulaire de modification de la couleur
-		const colorForm = document.getElementById("color-form");
+		// Fonction pour récupérer la valeur d'un cookie
+		function getCookieValue(cookieName) {
+			const cookies = document.cookie.split("; ");
+			for (const cookie of cookies) {
+				const [name, value] = cookie.split("=");
+				if (name === cookieName) {
+					return value;
+				}
+			}
+			return null;
+		}
 
-        // Ajouter un événement de soumission au formulaire
-        colorForm.addEventListener("submit", (event) => {
-            event.preventDefault(); // Empêcher le formulaire de se soumettre
+		// Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
+		const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
+		if (couleurFond) {
+			document.body.style.backgroundColor = couleurFond;
+		}
 
-            // Récupérer la couleur saisie par l'utilisateur
-            const colorInput = document.getElementById("color-input");
-            const newColor = colorInput.value;
-
-            // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
-            if (nomUtilisateur) {
-                document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
-            }
-
-            // Mettre à jour la couleur de fond du body
-            document.body.style.backgroundColor = newColor;
-        });
-
-        // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
-        const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
-        if (couleurFond) {
-            document.body.style.backgroundColor = couleurFond;
-        }
-        
-
-
-        
-
-        const buttonPhoto = document.getElementById("picture-form");
-
-        // Définit la fonction à appeler lorsque les données de la photo ont été lues
-        buttonPhoto.addEventListener("submit", (event) => {
-            event.preventDefault(); // Empêcher le formulaire de se soumettre
-
-            // Récupérer la couleur saisie par l'utilisateur
-            const photoInput = document.getElementById("input-photo");
-            const newPhoto = photoInput.value;
-
-            if (nomUtilisateur) {
-                alert("dfdfd")
-                // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
-                document.cookie = `photoUrl_${nomUtilisateur}=${newPhoto}; max-age=3600`;
-            }
-
-            // Affiche la photo sélectionnée
-            // const profilPicture = document.querySelector("#profilPicture");
-            document.body.style = `url(${newPhoto})`;
-        });
-
-        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+		const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataPicture) {
-            document.body.style = `url(${dataPicture})`;
+            document.body.style.background = `url(${dataPicture})`;
         }
-    </script>
+	</script>
 </body>
 </html>
