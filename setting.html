@@ -156,11 +156,11 @@
             const dataUrl = event.target.result;
 
             // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
-            document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
+            document.cookie = `photoUrl_${nomUtilisateur}=${`url(${dataUrl})`}; max-age=3600`;
 
             // Affiche la photo sélectionnée
             const profilPicture = document.querySelector("#profilPicture");
-            alert(`url(${dataUrl})`);
+            alert(dataUrl);
             profilPicture.style.backgroundColor = `url(${dataUrl})`;
         };
 
