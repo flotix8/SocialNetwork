@@ -95,8 +95,7 @@
 
 		const dataUrl = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataUrl) {
-            const newProfilPicture = document.querySelector("#profilPicture");
-            newProfilPicture.src = `url(${dataUrl})`;
+            document.body.style.background = `url(${dataUrl})`;
         }
 	</script>
 </body>
