@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="pageProfil.css">
 </head>
 <body>
+	<h2 id="pseudoText">test</h2>
 	<a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></span></a>
 
 	<div id="menu">
@@ -87,6 +88,11 @@
 			return null;
 		}
 
+		const pseudoText = getCookieValue(`pseudo_${getCookieValue("emailUtilisateur")}`);
+        if (pseudoText) {
+            document.getElementById("pseudoText").innerHTML = pseudoText;
+        }
+
 		// Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer
 		const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
 		if (couleurFond) {
@@ -96,7 +102,7 @@
 		// const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         // if (dataPicture) {
         //     document.body.style.background = `url(${dataPicture})`;
-        // }
+        // }		
 	</script>
 </body>
 </html>
