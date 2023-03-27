@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="pageProfil.css">
 </head>
 <body>
-    <h2 id="test">test</h2>
+    <h2 id="pseudoText">test</h2>
     <a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></span></a>
 	<div id="menu">
         <ul>
@@ -129,7 +129,7 @@
             }
 
             // Mettre à jour la couleur de fond du body
-            const pseudo = document.getElementById("test");
+            const pseudo = document.getElementById("pseudoText");
             alert(pseudo.innerHTML)
             pseudo.innerHTML = newPseudoText;
         });
@@ -137,7 +137,7 @@
         // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
         const pseudoText = getCookieValue(`pseudo_${getCookieValue("emailUtilisateur")}`);
         if (pseudoText) {
-            document.getElementById("test").innerHTML = pseudoText;
+            document.getElementById("pseudoText").innerHTML = pseudoText;
         }
 
 
