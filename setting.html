@@ -115,7 +115,6 @@
             const newColor = colorInput.value;
 
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
-            const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
                 document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
             }
@@ -139,6 +138,7 @@
         // Définit la fonction à appeler lorsque les données de la photo ont été lues
         buttonPhoto.addEventListener("click", (event) => {
             event.preventDefault(); // Empêcher le formulaire de se soumettre
+            alert("test")
 
             // Récupérer la couleur saisie par l'utilisateur
             const photoInput = document.getElementById("input-photo");
