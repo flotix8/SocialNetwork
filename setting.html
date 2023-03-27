@@ -171,7 +171,7 @@
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataPicture) {
-            document.body.style.background = `url(${dataPicture})`;
+            document.body.style.background = dataPicture;
         }
     </script>
 </body>
