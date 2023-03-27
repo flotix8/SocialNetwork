@@ -123,11 +123,6 @@
             document.body.style.backgroundColor = newColor;
         });
 
-        // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
-        const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
-        if (couleurFond) {
-            document.body.style.backgroundColor = couleurFond;
-        }
         
 
 
