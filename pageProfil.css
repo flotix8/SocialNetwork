@@ -11,6 +11,11 @@ body {
 #profilPicture {
 	border-radius: 30px;
 }
+#profilPictureSetting {
+  position: absolute;
+  margin: 10% 45%;
+  border-radius: 300px;
+}
 
 /* on activation */
 #toggle.on span {
