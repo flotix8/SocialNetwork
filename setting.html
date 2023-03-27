@@ -73,6 +73,19 @@
         }
 
 
+        // Fonction pour récupérer la valeur d'un cookie
+        function getCookieValue(cookieName) {
+            const cookies = document.cookie.split("; ");
+            for (const cookie of cookies) {
+                const [name, value] = cookie.split("=");
+                if (name === cookieName) {
+                    return value;
+                }
+            }
+            return null;
+        }
+
+
         const nomUtilisateur = getCookieValue("emailUtilisateur");
         if (nomUtilisateur) {
 			loginText.innerHTML = "Logout";
@@ -86,18 +99,6 @@
 				// Rediriger l'utilisateur vers la page de connexion
 				window.location.href = "https://flotix8.github.io/SocialNetwork/pageProfil.html";
 			});
-        }
-
-        // Fonction pour récupérer la valeur d'un cookie
-        function getCookieValue(cookieName) {
-            const cookies = document.cookie.split("; ");
-            for (const cookie of cookies) {
-                const [name, value] = cookie.split("=");
-                if (name === cookieName) {
-                    return value;
-                }
-            }
-            return null;
         }
 
 
@@ -169,23 +170,10 @@
             reader.readAsDataURL(photo);
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        alert(dataPicture)
         if (dataPicture) {
             document.body.style.backgroundColor = `url(${dataPicture})`;
         }
-
-        // Fonction pour récupérer la valeur d'un cookie
-        function getCookie(name) {
-            const cookies = document.cookie.split("; ");
-            for (const cookie of cookies) {
-                const [cookieName, cookieValue] = cookie.split("=");
-                if (cookieName === name) {
-                    return cookieValue;
-                }
-            }
-            return "";
-        }
-
-
     </script>
 </body>
 </html>
