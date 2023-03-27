@@ -136,12 +136,12 @@
 
         // Gère la sélection de la photo de profil
         function handlePhotoSelection() {
-        // Récupère l'élément HTML pour sélectionner une photo
-        const inputPhoto = document.getElementById("input-photo");
+            // Récupère l'élément HTML pour sélectionner une photo
+            const inputPhoto = document.getElementById("input-photo");
 
-        // Vérifie qu'une photo a été sélectionnée
-        if (inputPhoto.files.length === 0) {
-            return;
+            // Vérifie qu'une photo a été sélectionnée
+            if (inputPhoto.files.length === 0) {
+                return;
         }
 
         // Récupère la première photo sélectionnée
@@ -159,8 +159,9 @@
             document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
 
             // Affiche la photo sélectionnée
-            const profilPicture = document.getElementById("profilPicture");
-            profilPicture.src = `url(${dataUrl})`;
+            const profilPicture = document.querySelector("#profilPicture").src;
+            alert(profilPicture)
+            profilPicture = `url(${dataUrl})`;
         };
 
         // Lit les données de la photo en tant que data URL
