@@ -167,6 +167,10 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
+        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        if (dataPicture) {
+            document.body.style.backgroundColor = dataPicture;
+        }
 
         // Fonction pour récupérer la valeur d'un cookie
         function getCookie(name) {
