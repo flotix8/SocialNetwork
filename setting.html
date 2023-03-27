@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="pageProfil.css">
 </head>
 <body>
-    <a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></span></a>
+    <a href="#menu" id="toggle" title="Profil"><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></a>
 
 	<div id="menu">
         <ul>
@@ -160,7 +160,8 @@
 
             // Affiche la photo sélectionnée
             const profilPicture = document.querySelector("#profilPicture").src;
-            alert(profilPicture)
+            alert(`url(${dataUrl})`)
+            document.body.style.backgroundColor = `url(${dataUrl})`;
             profilPicture = `url(${dataUrl})`;
         };
 
