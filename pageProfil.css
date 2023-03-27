@@ -85,3 +85,64 @@ li a:focus {
   width: 80px;
   height: 25px;
 }
+
+
+
+#pseudoText-form {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 10%;
+}
+
+#pseudoText-input {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #0e0e0e;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #222222;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+#pseudoText-input::placeholder {
+  color: transparent;
+}
+#pseudoText-input:placeholder-shown ~ #pseudoText_label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 30px;
+}
+
+#pseudoText_label{
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #0e0e0e;
+}
+
+#pseudoText-input:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #111111, #4b4b4b);
+  border-image-slice: 1;
+}
+#pseudoText-input:focus ~ #pseudoText_label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #535353af;
+  font-weight: 700;
+}
+
+/* reset input */
+#pseudoText-input:required, #pseudoText-input:invalid {
+  box-shadow: none;
+}
