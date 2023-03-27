@@ -170,7 +170,6 @@
             reader.readAsDataURL(photo);
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        alert(dataPicture)
         if (dataPicture) {
             document.body.style.background = `url(${dataPicture})`;
         }
