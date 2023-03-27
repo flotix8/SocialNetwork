@@ -23,9 +23,9 @@
 		<button id="buttonBack" type="submit">Enregistrer</button>
 	</form>
     <!-- Formulaire pour sélectionner une photo de profil -->
-    <form>
+    <form id="picture-form">
     <input type="file" id="input-photo" accept="image/*">
-    <button type="button" id="button-picture">Sélectionner</button>
+    <button type="submit" id="button-picture">Sélectionner</button>
     </form>
 
     <!-- Affichage de la photo sélectionnée -->
@@ -133,7 +133,7 @@
 
         
 
-        const buttonPhoto = document.getElementById("button-picture");
+        const buttonPhoto = document.getElementById("picture-form");
 
         // Définit la fonction à appeler lorsque les données de la photo ont été lues
         buttonPhoto.addEventListener("click", (event) => {
