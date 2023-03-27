@@ -20,7 +20,7 @@
 
     <form id="pseudoText-form">
 		<label for="pseudoText-input">Pseudo :</label>
-		<input type="text" id="pseudoText-input" name="color-input">
+		<input type="text" id="pseudoText-input" name="pseudoText-input">
 		<button id="buttonpseudoText" type="submit">Enregistrer</button>
 	</form>
 
@@ -136,7 +136,7 @@
         // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
         const pseudoText = getCookieValue(`pseudo_${getCookieValue("emailUtilisateur")}`);
         if (pseudoText) {
-            document.body.style.backgroundColor = pseudoText;
+            pseudo.value = pseudoText;
         }
 
 
