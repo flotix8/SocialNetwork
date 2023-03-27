@@ -130,14 +130,14 @@
 
             // Mettre à jour la couleur de fond du body
             const pseudo = document.getElementById("test");
-            pseudo.value = newPseudoText;
-            alert(pseudo.value)
+            alert(pseudo.innerHTML)
+            pseudo.innerHTML = newPseudoText;
         });
 
         // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
         const pseudoText = getCookieValue(`pseudo_${getCookieValue("emailUtilisateur")}`);
         if (pseudoText) {
-            document.getElementById("test").value = pseudoText;
+            document.getElementById("test").innerHTML = pseudoText;
         }
 
 
