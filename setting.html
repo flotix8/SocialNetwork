@@ -138,25 +138,25 @@
         // Définit la fonction à appeler lorsque les données de la photo ont été lues
         buttonPhoto.addEventListener("submit", (event) => {
             event.preventDefault(); // Empêcher le formulaire de se soumettre
-            alert("test")
 
             // Récupérer la couleur saisie par l'utilisateur
             const photoInput = document.getElementById("input-photo");
-            const newPhoto = photoInput.target.result;
+            const newPhoto = photoInput.value;
 
             if (nomUtilisateur) {
+                alert("dfdfd")
                 // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
                 document.cookie = `photoUrl_${nomUtilisateur}=${newPhoto}; max-age=3600`;
             }
 
             // Affiche la photo sélectionnée
             // const profilPicture = document.querySelector("#profilPicture");
-            document.body.style.background = `url(${newPhoto})`;
+            document.body.style = `url(${newPhoto})`;
         });
 
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataPicture) {
-            document.body.style.background = `url(${dataPicture})`;
+            document.body.style = `url(${dataPicture})`;
         }
     </script>
 </body>
