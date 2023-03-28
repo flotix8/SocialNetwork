@@ -194,7 +194,7 @@
         modeForm.addEventListener("change", (event) => {
             event.preventDefault(); // Empêcher le formulaire de se soumettre
 
-            // Récupérer la couleur saisie par l'utilisateur
+            // Récupérer la valeur saisie par l'utilisateur
             const modeInput = document.getElementById("mode-input");
             const newMode = modeInput.value;
             alert(newMode)
@@ -206,12 +206,13 @@
             }
 
             // Mettre à jour la couleur de fond du body
-            if (newMode == on) {
-                alert("on1")
+            if (newMode == "on") {
+                alert("on1");
+                document.body.style.backgroundColor = "black";
             } else {
-                alert("off1")
+                alert("off1");
+                document.body.style.backgroundColor = "white";
             }
-            // document.body.style.backgroundColor
         });
 
         // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
