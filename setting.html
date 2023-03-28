@@ -12,7 +12,7 @@
             <li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
             <li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
             <li><a href="https://flotix8.github.io/SocialNetwork/pageProfil.html">Home</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">...</a></li>
         </ul>
 	</div>
 
@@ -23,14 +23,6 @@
         <label for="pseudo" id="pseudoText_label">Pseudo</label>
 	</form>
 
-    <!-- Formulaire pour modifier la couleur -->
-	<form id="color-form">
-		<label for="color-input" id="colortest">Background :</label>
-		<input type="color" id="color-input" name="color-input">
-		<button id="buttonBack" type="submit">Enregistrer</button>
-	</form>
-
-
     <form id="mode-form">
         <label class="mode-toggle">
             <input type="checkbox" name="toggle" id="mode-input">
@@ -38,6 +30,12 @@
         </label>
     </form>
 
+    <!-- Formulaire pour modifier la couleur -->
+	<!-- <form id="color-form">
+		<label for="color-input" id="colortest">Background :</label>
+		<input type="color" id="color-input" name="color-input">
+		<button id="buttonBack" type="submit">Enregistrer</button>
+	</form> -->
 
     <!-- Formulaire pour sélectionner une photo de profil -->
     <!-- <form>
@@ -151,35 +149,31 @@
 
         // ---------------------------Style---------------------------
 		// Récupérer le formulaire de modification de la couleur
-		const colorForm = document.getElementById("color-form");
+		// const colorForm = document.getElementById("color-form");
 
-        // Ajouter un événement de soumission au formulaire
-        colorForm.addEventListener("submit", (event) => {
-            event.preventDefault(); // Empêcher le formulaire de se soumettre
+        // // Ajouter un événement de soumission au formulaire
+        // colorForm.addEventListener("submit", (event) => {
+        //     event.preventDefault(); // Empêcher le formulaire de se soumettre
 
-            // Récupérer la couleur saisie par l'utilisateur
-            const colorInput = document.getElementById("color-input");
-            const newColor = colorInput.value;
+        //     // Récupérer la couleur saisie par l'utilisateur
+        //     const colorInput = document.getElementById("color-input");
+        //     const newColor = colorInput.value;
 
-            // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
-            const nomUtilisateur = getCookieValue("emailUtilisateur");
-            if (nomUtilisateur) {
-                document.cookie = `couleurFond_${nomUtilisateur}=${newColor};`;
-            }
+        //     // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
+        //     const nomUtilisateur = getCookieValue("emailUtilisateur");
+        //     if (nomUtilisateur) {
+        //         document.cookie = `couleurFond_${nomUtilisateur}=${newColor};`;
+        //     }
 
-            // Mettre à jour la couleur de fond du body
-            document.body.style.backgroundColor = newColor;
-        });
+        //     // Mettre à jour la couleur de fond du body
+        //     document.body.style.backgroundColor = newColor;
+        // });
 
-        // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
-        const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
-        if (couleurFond) {
-            document.body.style.backgroundColor = couleurFond;
-        }
-
-
-
-
+        // // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
+        // const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
+        // if (couleurFond) {
+        //     document.body.style.backgroundColor = couleurFond;
+        // }
 
 
 
@@ -197,7 +191,6 @@
             // Récupérer la valeur saisie par l'utilisateur
             const modeInput = document.getElementById("mode-input");
             const newMode = modeInput.checked;
-            alert(newMode)
 
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
             const nomUtilisateur = getCookieValue("emailUtilisateur");
@@ -207,11 +200,12 @@
 
             // Mettre à jour la couleur de fond du body
             if (newMode == true) {
-                document.body.style.backgroundColor = "black";
-                document.getElementById("colortest").style.color = "white"
+                document.body.style.background = "-webkit-linear-gradient(left, #e0e0e0, #757575)";
+                document.getElementById("colortest").style.color = "black";
             } else {
-                document.body.style.backgroundColor = "white";
-                document.getElementById("colortest").style.color = "black"
+                document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
+                document.getElementById("colortest").style.color = "white"
+                
             }
         });
 
@@ -219,11 +213,12 @@
         const darkmode = getCookieValue(`mode_${getCookieValue("emailUtilisateur")}`);
         if (darkmode) {
             if (darkmode == true) {
-                document.body.style.backgroundColor = "black";
-                document.getElementById("colortest").style.color = "white"
+                document.body.style.background = "-webkit-linear-gradient(left, #e0e0e0, #757575)";
+                document.getElementById("colortest").style.color = "black";
             } else {
-                document.body.style.backgroundColor = "white";
-                document.getElementById("colortest").style.color = "black"
+                document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
+                document.getElementById("colortest").style.color = "white"
+                
             }
         }
         
