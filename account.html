@@ -101,10 +101,10 @@
 			document.body.style.backgroundColor = couleurFond;
 		}
 
-		// const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        // if (dataPicture) {
-        //     document.body.style.background = `url(${dataPicture})`;
-        // }
+		const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        if (dataPicture) {
+            document.body.style.background = `url(${dataPicture})`;
+        }
 
 
 		const darkmode = getCookieValue(`mode_${getCookieValue("emailUtilisateur")}`);
@@ -112,7 +112,7 @@
             if (darkmode === true) {
                 document.body.style.background = "-webkit-linear-gradient(left, #e0e0e0, #757575)";
                 document.getElementById("colortest").style.color = "black";
-            } else {
+            } else if (darkmode === false){
                 document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
                 document.getElementById("colortest").style.color = "white";
             }
