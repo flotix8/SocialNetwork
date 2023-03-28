@@ -80,8 +80,8 @@
               // Adresse e-mail valide
               if (motDePasseSignup.value === motDePasseSignupVerif.value) {
                 // Enregistre le nom d'utilisateur et le mot de passe dans un cookie
-                document.cookie = `emailUtilisateur=${nomUtilisateurSignup.value}; max-age=3600`;
-                document.cookie = `motDePasse=${motDePasseSignup.value}; max-age=3600`;
+                document.cookie = `emailUtilisateur=${nomUtilisateurSignup.value};`;
+                document.cookie = `motDePasse=${motDePasseSignup.value};`;
                 // Redirige l'utilisateur vers la page de connexion
                 window.location.href = "https://flotix8.github.io/SocialNetwork/pageProfil.html";
               } else {
@@ -126,7 +126,7 @@
             }
             // Redirige l'utilisateur vers la page de profil si les informations de connexion sont correctes
             if (nomUtilisateurValide && motDePasseValide) {
-              window.location.href = 'pageProfil.html';
+              window.location.href = "https://flotix8.github.io/SocialNetwork/pageProfil.html";
             } else {
                 // Affiche un message d'erreur si les informations de connexion sont incorrectes
                 alert('Nom d\'utilisateur ou mot de passe incorrect');
