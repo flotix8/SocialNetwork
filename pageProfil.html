@@ -1,156 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mon réseau social - Connexion</title>
-	<link rel="stylesheet" href="page_de_inscription.css">
+	<title>Social Network Page</title>
+	<link rel="stylesheet" type="text/css" href="pageProfil.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="title-text">
-          <div class="title_login">
-            Login Form
-          </div>
-          <div class="title_signup">
-            Signup Form
-          </div>
-        </div>
-        <div class="form-container">
-          <div class="slide-controls">
-            <input type="radio" name="slide" id="login" checked>
-            <input type="radio" name="slide" id="signup">
-            <label for="login" class="slide_login">Login</label>
-            <label for="signup" class="slide_signup">Signup</label>
-            <div class="slider-tab"></div>
-        </div>
-        <div class="form-inner">
-            <form class="login">
-              <div class="field">
-                <input type="text" id="nomUtilisateurLogin" placeholder="Email Address" required>
-              </div>
-              <div class="field">
-                <input type="password" id="motDePasseLogin" placeholder="Password" required>
-              </div>
-              <div class="pass-link">
-                <a href="#">Forgot password?</a>
-              </div>
-              <div class="field btn">
-                <div class="btn-layer"></div>
-                <input type="submit" value="Login">
-              </div>
-              <div class="signup-link">
-                Not a member? <a href="">Signup now</a>
-              </div>
-            </form>
-            <form class="signup">
-              <div class="field">
-                <input type="text" id="nomUtilisateurSignup" placeholder="Email Address" required>
-              </div>
-              <div class="field">
-                <input type="password" id="motDePasseSignup" placeholder="Password" required>
-              </div>
-              <div class="field">
-                <input type="password" id="motDePasseSignupVerif" placeholder="Confirm password" required>
-              </div>
-              <div class="field btn">
-                <div class="btn-layer"></div>
-                <input type="submit" value="Signup">
-              </div>
-            </form>
-          </div>
-        </div>
-    </div>
+	<h2 id="pseudoText">...</h2>
+	<a href="#menu" id="toggle" title="Profil"><span><img id="profilPicture" height="43" width="43" src="https://static.vecteezy.com/system/resources/previews/010/260/479/original/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg"></span></a>
 
+	<div id="menu">
+		<ul>
+			<li><a href="https://flotix8.github.io/SocialNetwork/page_de_inscription.html" id="loginText">Login</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/account.html">Account</a></li>
+			<li><a href="https://flotix8.github.io/SocialNetwork/setting.html">Setting</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</div>
+	
 	<script>
-        // --------------------------Signup---------------------------
-        const Signup = document.querySelector('.signup');
-        const nomUtilisateurSignup = document.querySelector('#nomUtilisateurSignup');
-        const motDePasseSignup = document.querySelector('#motDePasseSignup');
-        const motDePasseSignupVerif = document.querySelector('#motDePasseSignupVerif');
+		var theToggle = document.getElementById('toggle');
 
-        Signup.addEventListener('submit', function(e) {
-            e.preventDefault();
+		// hasClass
+		function hasClass(elem, className) {
+			return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
+		}
+		// addClass
+		function addClass(elem, className) {
+			if (!hasClass(elem, className)) {
+				elem.className += ' ' + className;
+			}
+		}
+		// removeClass
+		function removeClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+					newClass = newClass.replace(' ' + className + ' ', ' ');
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			}
+		}
+		// toggleClass
+		function toggleClass(elem, className) {
+			var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
+			if (hasClass(elem, className)) {
+				while (newClass.indexOf(" " + className + " ") >= 0 ) {
+					newClass = newClass.replace( " " + className + " " , " " );
+				}
+				elem.className = newClass.replace(/^\s+|\s+$/g, '');
+			} else {
+				elem.className += ' ' + className;
+			}
+		}
 
-            function isEmailValid(email) {
-              const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-              return regex.test(email);
-            }
+		theToggle.onclick = function() {
+			toggleClass(this, 'on');
+			return false;
+		}
 
-            // Utilisation
-            if (isEmailValid(nomUtilisateurSignup.value)) {
-              // Adresse e-mail valide
-              if (motDePasseSignup.value === motDePasseSignupVerif.value) {
-                // Enregistre le nom d'utilisateur et le mot de passe dans un cookie
-                document.cookie = `emailUtilisateur=${nomUtilisateurSignup.value};`;
-                document.cookie = `motDePasse=${motDePasseSignup.value};`;
-                // Redirige l'utilisateur vers la page de connexion
-                window.location.href = "https://flotix8.github.io/SocialNetwork/pageProfil.html";
-              } else {
-                alert("Mot de passe diffrent")
-              }
-            } else {
-              alert("Email inconnue")
-            }
+		// ---------------------------Style---------------------------
+		var loginText = document.getElementById("loginText");
 
+		var nomUtilisateur = getCookieValue("emailUtilisateur");
+		if (nomUtilisateur) {
+			loginText.innerHTML = "Logout";
+			
+			// Rediriger l'utilisateur vers la page de connexion
+			loginText.href = "";
 
-            
-        });
+			// Ajouter un écouteur d'événements au bouton de déconnexion
+			loginText.addEventListener("click", function() {
+				// Supprimer le cookie d'authentification
+				document.cookie = "emailUtilisateur=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+				document.cookie = "motDePasse=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+			});
+		}
 
+		// Fonction pour récupérer la valeur d'un cookie
+		function getCookieValue(cookieName) {
+			const cookies = document.cookie.split("; ");
+			for (const cookie of cookies) {
+				const [name, value] = cookie.split("=");
+				if (name === cookieName) {
+					return value;
+				}
+			}
+			return null;
+		}
 
-        // ---------------------------Login---------------------------
-        const Login = document.querySelector('.login');
-        const nomUtilisateurLogin = document.querySelector('#nomUtilisateurLogin');
-        const motDePasseLogin = document.querySelector('#motDePasseLogin');
+		const pseudoText = getCookieValue(`pseudo_${getCookieValue("emailUtilisateur")}`);
+        if (pseudoText) {
+            document.getElementById("pseudoText").innerHTML = pseudoText;
+        }
 
-        Login.addEventListener('submit', function(e) {
-            e.preventDefault();
+		// Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer
+		const couleurFond = getCookieValue(`couleurFond_${getCookieValue("emailUtilisateur")}`);
+		if (couleurFond) {
+			document.body.style.backgroundColor = couleurFond;
+		}
 
-            // Vérifie si les informations de connexion sont correctes en comparant avec les cookies enregistrés lors de l'inscription
-            const cookies = document.cookie.split(';');
-            let nomUtilisateurValide = false;
-            let motDePasseValide = false;
-
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-
-                if (cookie.startsWith('emailUtilisateur=')) {
-                    if (cookie.split('=')[1] === nomUtilisateurLogin.value) {
-                        nomUtilisateurValide = true;
-                    }
-                }
-
-                if (cookie.startsWith('motDePasse=')) {
-                    if (cookie.split('=')[1] === motDePasseLogin.value) {
-                        motDePasseValide = true;
-                    }
-                }
-            }
-            // Redirige l'utilisateur vers la page de profil si les informations de connexion sont correctes
-            if (nomUtilisateurValide && motDePasseValide) {
-              window.location.href = "https://flotix8.github.io/SocialNetwork/pageProfil.html";
-            } else {
-                // Affiche un message d'erreur si les informations de connexion sont incorrectes
-                alert('Nom d\'utilisateur ou mot de passe incorrect');
-            }
-        });
-
-
-        const loginText = document.querySelector(".title-text .login");
-        const loginForm = document.querySelector("form.login");
-        const loginBtn = document.querySelector("label.slide_login");
-        const signupBtn = document.querySelector("label.slide_signup");
-        const signupLink = document.querySelector("form .signup-link a");
-        signupBtn.onclick = (()=>{
-            loginForm.style.marginLeft = "-50%";
-            loginText.style.marginLeft = "-50%";
-        });
-        loginBtn.onclick = (()=>{
-            loginForm.style.marginLeft = "0%";
-            loginText.style.marginLeft = "0%";
-        });
-        signupLink.onclick = (()=>{
-            signupBtn.click();
-            return false;
-        });
-    </script>
+		// const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        // if (dataPicture) {
+        //     document.body.style.background = `url(${dataPicture})`;
+        // }		
+	</script>
 </body>
 </html>
