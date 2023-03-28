@@ -250,14 +250,16 @@
                 }
 
                 // Affiche la photo sélectionnée
-                document.body.style.background = `url(${dataUrl})`;
+                const pictureProfil = document.getElementById("profilPictureSetting")
+                pictureProfil.src = `url(${dataUrl})`;
             };
 
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        document.body.style.background = `url(${dataPicture})`;
+        const pictureProfil2 = document.getElementById("profilPictureSetting")
+        pictureProfil2.src = `url(${dataPicture})`;
     </script>
 </body>
 </html>
