@@ -134,6 +134,12 @@ li a:focus {
 }
 
 
+#photo-form {
+  position: absolute;
+  margin: 26% 60%;
+}
+
+
 
 
 
