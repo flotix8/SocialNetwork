@@ -223,7 +223,9 @@
         // Récupère l'élément HTML pour afficher la photo sélectionnée
         const photoPreview = document.getElementById("photo-preview");
 
-        const pictureProfil = document.getElementById("profilPictureSetting");
+        const pictureProfil = document.getElementById("profilPicture");
+        const pictureProfil2 = document.getElementById("profilPictureSetting");
+
         // Gère la sélection de la photo de profil
         function handlePhotoSelection() {
             // Récupère l'élément HTML pour sélectionner une photo
@@ -251,17 +253,18 @@
                 }
 
                 // Affiche la photo sélectionnée
-                alert(dataUrl);
                 pictureProfil.src = dataUrl;
+                pictureProfil2.src = dataUrl;
             };
 
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        const dataPicture = `photoUrl_${getCookieValue("emailUtilisateur")}`;
         if (dataPicture) {
             alert(dataPicture)
 			pictureProfil.src = dataPicture;
+            pictureProfil2.src = dataPicture;
         }
     </script>
 </body>
