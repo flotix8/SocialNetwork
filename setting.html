@@ -25,7 +25,7 @@
 
     <!-- Formulaire pour modifier la couleur -->
 	<form id="color-form">
-		<label for="color-input">Background :</label>
+		<label for="color-input" id="colortest">Background :</label>
 		<input type="color" id="color-input" name="color-input">
 		<button id="buttonBack" type="submit">Enregistrer</button>
 	</form>
@@ -207,19 +207,25 @@
 
             // Mettre à jour la couleur de fond du body
             if (newMode == "on") {
-                alert("on1");
                 document.body.style.backgroundColor = "black";
+                document.getElementById("colortest").style.color = "white"
             } else {
-                alert("off1");
                 document.body.style.backgroundColor = "white";
+                document.getElementById("colortest").style.color = "black"
             }
         });
 
         // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
-        // const darkmode = getCookieValue(`mode_${getCookieValue("emailUtilisateur")}`);
-        // if (darkmode) {
-        //     document.body.style.backgroundColor = darkmode;
-        // }
+        const darkmode = getCookieValue(`mode_${getCookieValue("emailUtilisateur")}`);
+        if (darkmode) {
+            if (newMode == "on") {
+                document.body.style.backgroundColor = "black";
+                document.getElementById("colortest").style.color = "white"
+            } else {
+                document.body.style.backgroundColor = "white";
+                document.getElementById("colortest").style.color = "black"
+            }
+        }
         
 
 
