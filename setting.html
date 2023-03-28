@@ -223,6 +223,7 @@
         // Récupère l'élément HTML pour afficher la photo sélectionnée
         const photoPreview = document.getElementById("photo-preview");
 
+        const pictureProfil = document.getElementById("profilPictureSetting");
         // Gère la sélection de la photo de profil
         function handlePhotoSelection() {
             // Récupère l'élément HTML pour sélectionner une photo
@@ -250,7 +251,6 @@
                 }
 
                 // Affiche la photo sélectionnée
-                const pictureProfil = document.getElementById("profilPictureSetting");
                 alert(dataUrl);
                 pictureProfil.src = dataUrl;
             };
@@ -260,9 +260,8 @@
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataPicture) {
-            alert("test");
-			const pictureProfil2 = document.getElementById("profilPictureSetting");
-			pictureProfil2.src = dataPicture;
+            alert(dataPicture)
+			pictureProfil.src = dataPicture;
         }
     </script>
 </body>
