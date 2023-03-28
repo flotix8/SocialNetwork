@@ -38,10 +38,10 @@
 	</form> -->
 
     <!-- Formulaire pour sélectionner une photo de profil -->
-    <!-- <form>
+    <form id="photo-form">
         <input type="file" id="input-photo" accept="image/*">
         <button type="button" onclick="handlePhotoSelection()">Sélectionner</button>
-    </form> -->
+    </form>
     
 
     <script>
@@ -225,45 +225,45 @@
 
 
         // Récupère l'élément HTML pour afficher la photo sélectionnée
-        // const photoPreview = document.getElementById("photo-preview");
+        const photoPreview = document.getElementById("photo-preview");
 
-        // // Gère la sélection de la photo de profil
-        // function handlePhotoSelection() {
-        //     // Récupère l'élément HTML pour sélectionner une photo
-        //     const inputPhoto = document.getElementById("input-photo");
+        // Gère la sélection de la photo de profil
+        function handlePhotoSelection() {
+            // Récupère l'élément HTML pour sélectionner une photo
+            const inputPhoto = document.getElementById("input-photo");
 
-        //     // Vérifie qu'une photo a été sélectionnée
-        //     if (inputPhoto.files.length === 0) {
-        //         return;
-        //     }
+            // Vérifie qu'une photo a été sélectionnée
+            if (inputPhoto.files.length === 0) {
+                return;
+            }
 
-        //     // Récupère la première photo sélectionnée
-        //     const photo = inputPhoto.files[0];
+            // Récupère la première photo sélectionnée
+            const photo = inputPhoto.files[0];
 
-        //     // Crée un objet FileReader pour lire les données de la photo
-        //     const reader = new FileReader();
+            // Crée un objet FileReader pour lire les données de la photo
+            const reader = new FileReader();
 
-        //     // Définit la fonction à appeler lorsque les données de la photo ont été lues
-        //     reader.onload = function (event) {
-        //         // Crée une data URL à partir des données de la photo
-        //         const dataUrl = event.target.result;
+            // Définit la fonction à appeler lorsque les données de la photo ont été lues
+            reader.onload = function (event) {
+                // Crée une data URL à partir des données de la photo
+                const dataUrl = event.target.result;
 
-        //         if (nomUtilisateur) {
-        //             // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
-        //             document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
-        //         }
+                if (nomUtilisateur) {
+                    // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
+                    document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
+                }
 
-        //         // Affiche la photo sélectionnée
-        //         document.body.style.background = `url(${dataUrl})`;
-        //     };
+                // Affiche la photo sélectionnée
+                document.body.style.background = `url(${dataUrl})`;
+            };
 
-        //     // Lit les données de la photo en tant que data URL
-        //     reader.readAsDataURL(photo);
-        // }
-        // const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        // if (dataPicture) {
-        //     document.body.style.background = `url(${dataPicture})`;
-        // }
+            // Lit les données de la photo en tant que data URL
+            reader.readAsDataURL(photo);
+        }
+        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        if (dataPicture) {
+            document.body.style.background = `url(${dataPicture})`;
+        }
     </script>
 </body>
 </html>
