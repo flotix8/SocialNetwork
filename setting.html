@@ -128,7 +128,7 @@
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
             const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
-                document.cookie = `pseudo_${nomUtilisateur}=${newPseudoText}; max-age=3600`;
+                document.cookie = `pseudo_${nomUtilisateur}=${newPseudoText};`;
             }
 
             // Mettre à jour la couleur de fond du body
@@ -158,7 +158,7 @@
             // Enregistrer la couleur dans un cookie associé au nom d'utilisateur
             const nomUtilisateur = getCookieValue("emailUtilisateur");
             if (nomUtilisateur) {
-                document.cookie = `couleurFond_${nomUtilisateur}=${newColor}; max-age=3600`;
+                document.cookie = `couleurFond_${nomUtilisateur}=${newColor};`;
             }
 
             // Mettre à jour la couleur de fond du body
