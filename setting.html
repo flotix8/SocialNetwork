@@ -249,7 +249,7 @@
 
                 if (nomUtilisateur) {
                     // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
-                    document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl}; max-age=3600`;
+                    document.cookie = `photoUrl_${nomUtilisateur}=${dataUrl};`;
                 }
 
                 // Affiche la photo sélectionnée
@@ -260,7 +260,7 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        const dataPicture = `photoUrl_${getCookieValue("emailUtilisateur")}`;
+        const dataPicture = getCookieValue(`photoUrl_$`);
         if (dataPicture) {
             alert(dataPicture)
 			pictureProfil.src = dataPicture;
