@@ -262,8 +262,8 @@
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataPicture) {
-			pictureProfil.src = `url(${dataPicture})`;
-            pictureProfil2.src = dataPicture;
+			pictureProfil.src = dataPicture;
+            pictureProfil2.src = dataPicture.target.result;
         }
     </script>
 </body>
