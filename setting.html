@@ -250,16 +250,20 @@
                 }
 
                 // Affiche la photo sélectionnée
-                const pictureProfil = document.getElementById("profilPictureSetting")
-                pictureProfil.src = `url(${dataUrl})`;
+                const pictureProfil = document.getElementById("profilPictureSetting");
+                alert(dataUrl);
+                pictureProfil.src = dataUrl;
             };
 
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        const pictureProfil2 = document.getElementById("profilPictureSetting")
-        pictureProfil2.src = `url(${dataPicture})`;
+        if (dataPicture) {
+            alert("test");
+			const pictureProfil2 = document.getElementById("profilPictureSetting");
+			pictureProfil2.src = dataPicture;
+        }
     </script>
 </body>
 </html>
