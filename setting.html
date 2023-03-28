@@ -187,7 +187,6 @@
         // Ajouter un événement de soumission au formulaire
         modeForm.addEventListener("change", (event) => {
             event.preventDefault(); // Empêcher le formulaire de se soumettre
-            alert(event)
 
             // Récupérer la valeur saisie par l'utilisateur
             const modeInput = document.getElementById("mode-input");
@@ -247,7 +246,6 @@
             reader.onload = function (event) {
                 // Crée une data URL à partir des données de la photo
                 const dataUrl = event.target.result;
-                alert(event)
 
                 if (nomUtilisateur) {
                     // Enregistre la data URL dans un cookie pour le nom d'utilisateur actuel
@@ -262,14 +260,11 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        window.onbeforeunload = function(event) {
-            const dataPicture = event.target.result;
-            // const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-            if (dataPicture) {
-                pictureProfil.src = dataPicture.target;
-                pictureProfil2.src = dataPicture.target;
-            }
-        };
+        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        if (dataPicture) {
+			pictureProfil.src = dataPicture.target.result;
+            pictureProfil2.src = dataPicture;
+        }
     </script>
 </body>
 </html>
