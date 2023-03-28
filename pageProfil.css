@@ -75,7 +75,7 @@ li a:focus {
 
 #color-form {
   position: absolute;
-  margin-top: 0;
+  margin-top: 5%;
   font-size: large;
 }
 #color-input {
@@ -145,4 +145,71 @@ li a:focus {
 /* reset input */
 #pseudoText-input:required, #pseudoText-input:invalid {
   box-shadow: none;
+}
+
+
+
+
+
+
+input[type="checkbox"]{
+	-webkit-appearance: none;
+	visibility: hidden;
+	display: none;
+}
+
+.mode-tick{
+	position: relative;
+  left: 20px;
+	display: inline-block;
+	width: 60px;
+	height: 30px;
+	background: #313131;
+	cursor: pointer;
+	border-radius: 20px;
+	overflow: hidden;
+	transition: ease-in .5s;
+}
+
+input[type="checkbox"]:checked ~ .mode-tick{
+	background: #fff;
+}
+
+/******* Before Start *******/
+
+.mode-tick:before{
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	background: #fff;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	transition: .2s;
+	transform: translateX(0px);
+}
+
+input[type="checkbox"]:checked ~ .mode-tick:before{
+	transform: translateX(70px);
+}
+
+/******* Before End *******/
+/******* After Start *******/
+
+.mode-tick:after{
+	content: '';
+	position: absolute;
+	top: 2px;
+	right: 1px;
+	background: #313131;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	transition: .2s;
+	transform: translateX(-40px);
+}
+
+input[type="checkbox"]:checked ~ .mode-tick:after{
+	transform: translateX(0px);
 }
