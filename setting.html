@@ -260,7 +260,7 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        const dataPicture = getCookieValue(`photoUrl_$`);
+        const dataPicture = getCookieValue(`photoUrl_${nomUtilisateur}`);
         if (dataPicture) {
             alert(dataPicture)
 			pictureProfil.src = dataPicture;
