@@ -1,5 +1,5 @@
 body {
-	background-color: #919191;
+	background: -webkit-linear-gradient(left, #414141, #111111);
 }
 
 #pseudoText {
@@ -73,20 +73,6 @@ li a:focus {
 }
 
 
-#color-form {
-  position: absolute;
-  margin-top: 5%;
-  font-size: large;
-}
-#color-input {
-  border-radius: 5px;
-}
-#buttonBack {
-  width: 80px;
-  height: 25px;
-}
-
-
 
 #pseudoText-form {
   position: absolute;
@@ -151,7 +137,6 @@ li a:focus {
 
 
 
-
 input[type="checkbox"]{
 	-webkit-appearance: none;
 	visibility: hidden;
@@ -159,8 +144,8 @@ input[type="checkbox"]{
 }
 
 .mode-tick{
-	position: relative;
-  left: 20px;
+	position: absolute;
+  margin: 18% 23%;
 	display: inline-block;
 	width: 60px;
 	height: 30px;
@@ -169,6 +154,8 @@ input[type="checkbox"]{
 	border-radius: 20px;
 	overflow: hidden;
 	transition: ease-in .5s;
+  border-style: solid;
+  border-width: 1px;
 }
 
 input[type="checkbox"]:checked ~ .mode-tick{
