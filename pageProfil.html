@@ -108,9 +108,11 @@
 		const darkmode = getCookieValue(`mode_${getCookieValue("emailUtilisateur")}`);
         if (darkmode) {
             if (darkmode === true) {
+		    alert("test")
                 document.body.style.background = "-webkit-linear-gradient(left, #e0e0e0, #757575)";
                 document.getElementById("colortest").style.color = "black";
             } else if (darkmode === false){
+		    alert("test1")
                 document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
                 document.getElementById("colortest").style.color = "white";
             }
