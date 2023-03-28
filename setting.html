@@ -258,12 +258,13 @@
             };
 
             // Lit les données de la photo en tant que data URL
-            reader.readAsDataURL(photo);
+            const test = reader.readAsDataURL(photo);
+            alert(test)
         }
         const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
         if (dataPicture) {
-			pictureProfil.src = dataUrl;
-            pictureProfil2.src = dataUrl;
+			pictureProfil.src = dataPicture;
+            pictureProfil2.src = dataPicture;
         }
     </script>
 </body>
