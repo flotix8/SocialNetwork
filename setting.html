@@ -260,11 +260,14 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        if (dataPicture) {
-			pictureProfil.src = dataPicture.target;
-            pictureProfil2.src = dataPicture.target.result;
-        }
+        window.onbeforeunload = function(event) {
+            const dataPicture = event.target.result;
+            // const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+            if (dataPicture) {
+                pictureProfil.src = dataPicture.target;
+                pictureProfil2.src = dataPicture.target.result;
+            }
+        };
     </script>
 </body>
 </html>
