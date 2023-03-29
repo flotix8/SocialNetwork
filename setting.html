@@ -209,6 +209,7 @@
         });
 
         // Récupérer la couleur du cookie associé au nom d'utilisateur et l'appliquer au body
+        const darkModeInput = document.getElementById("mode-input");
         const darkmode = getCookieValue(`mode_${getCookieValue("emailUtilisateur")}`);
         if (darkmode) {
             if (darkmode === "true") {
@@ -217,6 +218,7 @@
             } else if (darkmode === "false") {
                 document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
                 document.getElementById("colortest").style.color = "white";
+                darkModeInput.checked = false;
             }
         }
 
