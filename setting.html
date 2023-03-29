@@ -261,23 +261,21 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        const reader = new FileReader();
-
-        // Définit la fonction à appeler lorsque les données de la photo ont été lues
-        reader.onload = function (event) {
-            // Crée une data URL à partir des données de la photo
-            const dataPicture = event.target.result;
-
-            // const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-            if (dataPicture) {
-                pictureProfil.src = dataPicture;
-                pictureProfil2.src = dataPicture;
+        const cookies = document.cookie.split(';');
+        let imageValue;
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.trim().split('=');
+            if (name ===  `photoUrl_${nomUtilisateur}`) {
+                alert("test1");
+                pictureProfil.src = value;
+                pictureProfil2.src = value;
             }
-        };
-
-        // Lit les données de la photo en tant que data URL
-        reader.readAsDataURL(photo);
-        
+        });
+        // const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        // if (dataPicture) {
+		// 	pictureProfil.src = dataPicture;
+        //     pictureProfil2.src = dataPicture;
+        // }
     </script>
 </body>
 </html>
