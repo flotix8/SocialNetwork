@@ -261,21 +261,11 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        const cookies = document.cookie.split(';');
-        let imageValue;
-        cookies.forEach(cookie => {
-            const [name, value] = cookie.trim().split('=');
-            if (name ===  `photoUrl_${nomUtilisateur}`) {
-                alert(value);
-                pictureProfil.src = value;
-                pictureProfil2.src = value;
-            }
-        });
-        // const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        // if (dataPicture) {
-		// 	pictureProfil.src = dataPicture;
-        //     pictureProfil2.src = dataPicture;
-        // }
+        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+        if (dataPicture) {
+			pictureProfil.src = dataPicture;
+            pictureProfil2.src = dataPicture;
+        }
     </script>
 </body>
 </html>
