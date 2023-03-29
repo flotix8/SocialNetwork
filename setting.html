@@ -261,11 +261,23 @@
             // Lit les données de la photo en tant que data URL
             reader.readAsDataURL(photo);
         }
-        const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
-        if (dataPicture) {
-			pictureProfil.src = "dataPicture";
-            pictureProfil2.src = dataPicture;
-        }
+        const reader = new FileReader();
+
+        // Définit la fonction à appeler lorsque les données de la photo ont été lues
+        reader.onload = function (event) {
+            // Crée une data URL à partir des données de la photo
+            const dataPicture = event.target.result;
+
+            // const dataPicture = getCookieValue(`photoUrl_${getCookieValue("emailUtilisateur")}`);
+            if (dataPicture) {
+                pictureProfil.src = dataPicture;
+                pictureProfil2.src = dataPicture;
+            }
+        };
+
+        // Lit les données de la photo en tant que data URL
+        reader.readAsDataURL(photo);
+        
     </script>
 </body>
 </html>
