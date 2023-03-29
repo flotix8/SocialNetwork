@@ -25,7 +25,7 @@
 
     <form id="mode-form">
         <label class="mode-toggle">
-            <input type="checkbox" name="toggle" id="mode-input" value="on">
+            <input type="checkbox" name="toggle" id="mode-input">
             <span class="mode-tick"></span>
         </label>
     </form>
@@ -218,7 +218,7 @@
             } else if (darkmode === "false") {
                 document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
                 document.getElementById("colortest").style.color = "white";
-                darkModeInput.value = 'off';
+                darkModeInput = checked;
             }
         }
 
