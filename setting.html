@@ -201,10 +201,8 @@
             // Mettre à jour la couleur de fond du body
             if (newMode === true) {
                 document.body.style.background = "-webkit-linear-gradient(left, #e0e0e0, #757575)";
-                document.getElementById("colortest").style.color = "black";
             } else if (newMode === false){
                 document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
-                document.getElementById("colortest").style.color = "white";
             }
         });
 
@@ -214,10 +212,10 @@
         if (darkmode) {
             if (darkmode === "true") {
                 document.body.style.background = "-webkit-linear-gradient(left, #e0e0e0, #757575)";
-                document.getElementById("colortest").style.color = "black";
+                // document.getElementById("").style.color = "black";
             } else if (darkmode === "false") {
                 document.body.style.background = "-webkit-linear-gradient(left, #414141, #111111)";
-                document.getElementById("colortest").style.color = "white";
+                // document.getElementById("").style.color = "white";
                 darkModeInput.checked = true;
             }
         }
