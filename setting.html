@@ -266,7 +266,7 @@
         cookies.forEach(cookie => {
             const [name, value] = cookie.trim().split('=');
             if (name ===  `photoUrl_${nomUtilisateur}`) {
-                alert("test1");
+                alert(value);
                 pictureProfil.src = value;
                 pictureProfil2.src = value;
             }
