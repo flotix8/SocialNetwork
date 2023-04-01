@@ -198,3 +198,53 @@ form .btn input[type="submit"]{
   font-weight: 500;
   cursor: pointer;
 }
+
+
+
+.field {
+  position: relative;
+}
+#motDePasseSignup {
+  padding-right: 40px; /* Ajustement de la largeur pour ajouter de la place pour le bouton */
+}
+#showPassword {
+  position: absolute;
+  top: 50%;
+  font-size: 20px;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+#motDePasseSignupVerif {
+  padding-right: 40px; /* Ajustement de la largeur pour ajouter de la place pour le bouton */
+}
+#showPasswordVerif {
+  position: absolute;
+  top: 50%;
+  font-size: 20px;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+#motDePasseLogin {
+  padding-right: 40px; /* Ajustement de la largeur pour ajouter de la place pour le bouton */
+}
+#showPasswordLogin {
+  position: absolute;
+  top: 50%;
+  font-size: 20px;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
